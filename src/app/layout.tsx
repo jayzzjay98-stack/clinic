@@ -81,13 +81,25 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="canonical" href="https://laonedental.com" />
-        {/* Scroll to top on page load */}
+        {/* Force scroll to top on page load */}
         <script dangerouslySetInnerHTML={{
           __html: `
+          // Disable browser scroll restoration
           if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
           }
+          // Scroll to top immediately
           window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          // Also scroll on DOMContentLoaded
+          document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+          });
+          // And on load
+          window.addEventListener('load', function() {
+            setTimeout(function() { window.scrollTo(0, 0); }, 0);
+          });
         `}} />
       </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>
