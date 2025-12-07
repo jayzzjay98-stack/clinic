@@ -54,6 +54,13 @@ body {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 100px;
+  /* Space for fixed navbar */
+}
+
+/* Enhanced smooth scrolling for all scrollable elements */
+* {
+  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -80,26 +87,7 @@ html {
   outline-offset: 2px;
 }
 
-/* Custom Animations */
-@keyframes bounce-slow {
 
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 3s infinite;
-}
-
-.animate-bounce-slow-delayed {
-  animation: bounce-slow 3s infinite 0.5s;
-}
 
 /* Hide scrollbar for carousel */
 .scrollbar-hide::-webkit-scrollbar {
@@ -109,4 +97,10 @@ html {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Smooth font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

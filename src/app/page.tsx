@@ -1,15 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import {
-  Smile,
   Calendar,
   ShieldCheck,
   Phone,
   Menu,
   X,
-  Award,
   Cpu,
   BadgeCheck,
   MapPin,
@@ -31,16 +29,7 @@ import {
    SECTION A: STICKY NAVBAR
    ============================================ */
 function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navLinks = [
     { name: "Services", href: "#services" },
@@ -53,22 +42,25 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300 backdrop-blur-xl border border-white/10 shadow-lg ${isMobileMenuOpen
+        className={`fixed top-4 left-0 right-0 mx-auto z-50 w-[95%] max-w-6xl backdrop-blur-xl border border-white/10 shadow-lg ${isMobileMenuOpen
           ? "hidden"
           : "bg-[#1a1a2e]/50 rounded-full"
           }`}
       >
         <div className="px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <a href="#" className="flex items-center group">
-              <Image
-                src="/laone-logo-transparent.png"
-                alt="Laone Dental"
-                width={200}
-                height={100}
-                className="h-16 lg:h-20 w-auto object-contain"
-              />
+            {/* Logo - Fixed dimensions to prevent layout shift */}
+            <a href="#" className="flex items-center">
+              <div className="w-[160px] h-16 lg:w-[200px] lg:h-20 relative flex-shrink-0">
+                <Image
+                  src="/laone-logo-transparent.png"
+                  alt="Laone Dental"
+                  fill
+                  sizes="200px"
+                  className="object-contain object-left"
+                  priority
+                />
+              </div>
             </a>
 
             {/* Desktop Navigation */}
@@ -585,25 +577,12 @@ function DoctorSection() {
               </div>
             </div>
 
-            {/* Floating Badge */}
-            <div className="absolute -right-4 -bottom-4 bg-white rounded-2xl shadow-xl p-4 hidden lg:block">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F7931E] to-[#a02595] flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <p className="font-bold text-[#333]">15+ Years</p>
-                  <p className="text-sm text-gray-600">Experience</p>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           {/* Right Column - Bio */}
           <div className="space-y-6">
-            <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider">
-              Meet Our Doctor
-            </span>
+
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
               Dr. Somsri Jaidee{" "}

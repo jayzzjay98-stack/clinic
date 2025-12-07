@@ -10,7 +10,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
+  display: "block",
 });
 
 /* ============================================
@@ -81,6 +81,14 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <head>
         <link rel="canonical" href="https://laonedental.com" />
+        {/* Scroll to top on page load */}
+        <script dangerouslySetInnerHTML={{
+          __html: `
+          if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+          }
+          window.scrollTo(0, 0);
+        `}} />
       </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>
         {children}
