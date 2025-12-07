@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -14,28 +14,58 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 /* ============================================
-   SEO METADATA - Thai Dental Clinic
+   VIEWPORT CONFIGURATION
+   ============================================ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#1a1a2e",
+};
+
+/* ============================================
+   SEO METADATA - Laone Dental Clinic
    ============================================ */
 export const metadata: Metadata = {
-  title: "Glow Dental Clinic | คลินิกทันตกรรม กรุงเทพ",
+  title: "Laone Dental Clinic | Expert Dental Care in Vientiane, Laos",
   description:
-    "คลินิกทันตกรรมครบวงจร รากฟันเทียม ฟอกสีฟัน จัดฟัน ตรวจสุขภาพฟัน ด้วยเทคโนโลยีทันสมัย โดยทีมทันตแพทย์ผู้เชี่ยวชาญ",
+    "Comprehensive dental clinic offering dental implants, teeth whitening, orthodontics, and dental checkups. Modern technology with expert dentists. 15+ years experience.",
   keywords: [
-    "คลินิกทันตกรรม",
-    "ทันตแพทย์",
-    "รากฟันเทียม",
-    "ฟอกสีฟัน",
-    "จัดฟัน",
-    "dental clinic bangkok",
+    "dental clinic laos",
+    "dentist vientiane",
+    "dental implants",
     "teeth whitening",
-    "dental implants thailand",
+    "orthodontics",
+    "braces",
+    "dental checkup",
+    "laone dental",
+    "best dentist laos",
   ],
+  authors: [{ name: "Laone Dental Clinic" }],
+  creator: "Laone Dental Clinic",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Glow Dental Clinic | คลินิกทันตกรรม กรุงเทพ",
+    title: "Laone Dental Clinic | Expert Dental Care in Vientiane",
     description:
-      "คลินิกทันตกรรมครบวงจร รากฟันเทียม ฟอกสีฟัน จัดฟัน ตรวจสุขภาพฟัน ด้วยเทคโนโลยีทันสมัย",
+      "Comprehensive dental services: implants, whitening, orthodontics. Modern technology, expert team, 15+ years experience.",
     type: "website",
-    locale: "th_TH",
+    locale: "en_US",
+    siteName: "Laone Dental Clinic",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Laone Dental Clinic | Expert Dental Care",
+    description: "Comprehensive dental services with modern technology and expert dentists.",
   },
 };
 
@@ -48,7 +78,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="canonical" href="https://laonedental.com" />
+      </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>
         {children}
       </body>
