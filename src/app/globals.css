@@ -1,26 +1,112 @@
 @import "tailwindcss";
 
+/* ============================================
+   GLOW WELLNESS CLINIC - GLOBAL STYLES
+   Theme: Medical Minimalism
+   ============================================ */
+
+/* Custom CSS Variables for Design System */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors - Laone Dental */
+  --primary: #8B5CF6;
+  --primary-dark: #7C3AED;
+  --primary-light: #A78BFA;
+
+  /* Gradient Colors */
+  --gradient-purple: #4C1D95;
+  --gradient-violet: #6D28D9;
+  --gradient-orange: #F97316;
+  --gradient-pink: #EC4899;
+
+  /* Neutral Colors */
+  --background: #1E1B4B;
+  --background-alt: #312E81;
+  --foreground: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
+
+  /* Accent Colors */
+  --accent-light: rgba(139, 92, 246, 0.2);
 }
 
+/* Tailwind Theme Customization */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-muted: var(--text-muted);
+  --color-accent-light: var(--accent-light);
+  --font-sans: var(--font-plus-jakarta);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base Body Styles */
+body {
+  background: linear-gradient(135deg, #3d0d39 0%, #6b1a62 25%, #a02595 50%, #c94eb8 75%, #6b1a62 100%);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Smooth Scrolling & Prevent Horizontal Scroll */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1B4B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8B5CF6, #F97316);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #A78BFA, #FB923C);
+}
+
+/* Focus States for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Custom Animations */
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
+
+.animate-bounce-slow-delayed {
+  animation: bounce-slow 3s infinite 0.5s;
+}
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
