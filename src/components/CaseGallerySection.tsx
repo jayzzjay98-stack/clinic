@@ -207,8 +207,17 @@ export default function CaseGallerySection() {
                         freeMode={{
                             enabled: true,
                             sticky: false,
-                            momentumRatio: 0.8,
+                            momentumRatio: 1.2,
+                            momentumVelocityRatio: 1.2,
+                            momentumBounce: true,
+                            momentumBounceRatio: 1,
                         }}
+                        touchRatio={1.5}
+                        touchReleaseOnEdges={true}
+                        resistance={true}
+                        resistanceRatio={0.5}
+                        speed={250}
+                        cssMode={true}
                         navigation={{
                             prevEl: ".case-swiper-prev",
                             nextEl: ".case-swiper-next",
@@ -219,7 +228,7 @@ export default function CaseGallerySection() {
                         }}
                         breakpoints={{
                             640: { slidesPerView: 2.2, spaceBetween: 24 },
-                            1024: { slidesPerView: 3, spaceBetween: 32 },
+                            1024: { slidesPerView: 3, spaceBetween: 32, cssMode: false },
                         }}
                         className="!pb-14"
                     >

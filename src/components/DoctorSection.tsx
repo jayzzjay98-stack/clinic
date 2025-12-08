@@ -205,8 +205,8 @@ export default function DoctorSection() {
                         freeMode={{
                             enabled: true,
                             sticky: false,
-                            momentumRatio: 1,
-                            momentumVelocityRatio: 1,
+                            momentumRatio: 1.2,
+                            momentumVelocityRatio: 1.2,
                             momentumBounce: true,
                             momentumBounceRatio: 1,
                         }}
@@ -214,8 +214,9 @@ export default function DoctorSection() {
                         touchRatio={1.5}
                         touchReleaseOnEdges={true}
                         resistance={true}
-                        resistanceRatio={0.85}
-                        speed={300}
+                        resistanceRatio={0.5}
+                        speed={250}
+                        cssMode={true}
                         navigation={{
                             prevEl: ".doctor-swiper-prev",
                             nextEl: ".doctor-swiper-next",
@@ -227,8 +228,8 @@ export default function DoctorSection() {
                         breakpoints={{
                             480: { slidesPerView: 2, spaceBetween: 20 },
                             640: { slidesPerView: 3, spaceBetween: 24 },
-                            1024: { slidesPerView: 4, spaceBetween: 32 },
-                            1280: { slidesPerView: 5, spaceBetween: 32 },
+                            1024: { slidesPerView: 4, spaceBetween: 32, cssMode: false },
+                            1280: { slidesPerView: 5, spaceBetween: 32, cssMode: false },
                         }}
                         className="!pb-12"
                     >
