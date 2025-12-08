@@ -40,6 +40,7 @@ export default function WhyChooseUsSection() {
                                 sizes="(max-width: 768px) 66vw, (max-width: 1024px) 40vw, 33vw"
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
+                                quality={80}
                             />
                         </div>
                         {/* Small image - top right */}
@@ -51,6 +52,7 @@ export default function WhyChooseUsSection() {
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
+                                quality={80}
                             />
                         </div>
                         {/* Medium image - middle right */}
@@ -62,6 +64,7 @@ export default function WhyChooseUsSection() {
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
+                                quality={80}
                             />
                         </div>
                         {/* Bottom left image */}
@@ -73,6 +76,7 @@ export default function WhyChooseUsSection() {
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
+                                quality={80}
                             />
                         </div>
                         {/* Bottom center image */}
@@ -84,6 +88,7 @@ export default function WhyChooseUsSection() {
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"
                                 className="object-cover hover:scale-105 transition-transform duration-500"
                                 loading="lazy"
+                                quality={80}
                             />
                         </div>
                     </div>

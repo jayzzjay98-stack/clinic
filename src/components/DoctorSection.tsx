@@ -235,11 +235,12 @@ export default function DoctorSection() {
                                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden ring-4 ring-white/20 group-hover:ring-[#F7931E] transition-all duration-300 shadow-xl group-hover:shadow-[#F7931E]/20">
                                         <Image
                                             src={doctor.image}
-                                            alt={doctor.name}
+                                            alt={`${doctor.name} - ${doctor.specialty} at Laone Dental Clinic`}
                                             fill
-                                            sizes="128px"
+                                            sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
                                             className="object-cover group-hover:scale-110 transition-transform duration-500"
-                                            unoptimized
+                                            quality={80}
+                                            loading="lazy"
                                         />
                                     </div>
                                     {/* Name */}
@@ -273,8 +274,8 @@ export default function DoctorSection() {
                     {/* Modal Content with Zoom + Fade Animation */}
                     <div
                         className={`relative bg-[#1a1a2e] border border-white/20 rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transition-all duration-300 ease-out ${isModalVisible
-                                ? "opacity-100 scale-100 translate-y-0"
-                                : "opacity-0 scale-95 translate-y-4"
+                            ? "opacity-100 scale-100 translate-y-0"
+                            : "opacity-0 scale-95 translate-y-4"
                             }`}
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -295,11 +296,11 @@ export default function DoctorSection() {
                                     <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden ring-4 ring-gradient-to-r ring-[#F7931E] shadow-xl">
                                         <Image
                                             src={selectedDoctor.image}
-                                            alt={selectedDoctor.name}
+                                            alt={`${selectedDoctor.name} - ${selectedDoctor.specialty}`}
                                             fill
-                                            sizes="160px"
+                                            sizes="(max-width: 640px) 128px, 160px"
                                             className="object-cover"
-                                            unoptimized
+                                            quality={80}
                                         />
                                     </div>
                                     {/* Experience Badge */}

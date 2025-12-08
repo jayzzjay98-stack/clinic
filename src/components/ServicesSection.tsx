@@ -76,6 +76,7 @@ export default function ServicesSection() {
                                         sizes="(max-width: 640px) 85vw, (max-width: 1024px) 320px, 300px"
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                                         loading="lazy"
+                                        quality={80}
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                                 </div>

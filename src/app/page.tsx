@@ -8,6 +8,7 @@ import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import DoctorSection from "@/components/DoctorSection";
+import CaseGallerySection from "@/components/CaseGallerySection";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
 
@@ -19,6 +20,7 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseUsSection />
       <DoctorSection />
+      <CaseGallerySection />
       <ReviewsSection />
       <Footer />
     </main>
