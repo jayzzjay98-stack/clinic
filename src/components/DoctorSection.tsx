@@ -12,6 +12,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
+// Hook to detect mobile
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+    return isMobile;
+}
+
 // Doctor data - 10 doctors with expanded information
 const doctors = [
     {
@@ -131,6 +143,7 @@ type Doctor = typeof doctors[0];
 export default function DoctorSection() {
     const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const isMobile = useIsMobile();
 
     const openModal = (doctor: Doctor) => {
         setSelectedDoctor(doctor);
@@ -183,90 +196,127 @@ export default function DoctorSection() {
                 </div>
 
                 {/* Swiper Carousel with FreeMode */}
-                <div className="relative px-12 touch-pan-y">
-                    {/* Custom Navigation Buttons */}
-                    <button
-                        className="doctor-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
-                        aria-label="Previous"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                        className="doctor-swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
-                        aria-label="Next"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
+                <div className="relative px-4 md:px-12">
+                    {/* Custom Navigation Buttons - Desktop only */}
+                    {!isMobile && (
+                        <>
+                            <button
+                                className="doctor-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
+                                aria-label="Previous"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button
+                                className="doctor-swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
+                                aria-label="Next"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </>
+                    )}
 
-                    <Swiper
-                        modules={[Navigation, Pagination, FreeMode]}
-                        spaceBetween={20}
-                        slidesPerView={1.5}
-                        speed={500}
-                        touchRatio={1.5}
-                        touchAngle={45}
-                        grabCursor={true}
-                        touchStartPreventDefault={false}
-                        shortSwipes={true}
-                        longSwipes={true}
-                        longSwipesRatio={0.5}
-                        resistance={true}
-                        resistanceRatio={0.85}
-                        freeMode={{
-                            enabled: true,
-                            sticky: false,
-                            momentum: true,
-                            momentumRatio: 1,
-                            momentumVelocityRatio: 1,
-                            momentumBounce: true,
-                        }}
-                        navigation={{
-                            prevEl: ".doctor-swiper-prev",
-                            nextEl: ".doctor-swiper-next",
-                        }}
-                        pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
-                        }}
-                        breakpoints={{
-                            480: { slidesPerView: 2, spaceBetween: 20 },
-                            640: { slidesPerView: 3, spaceBetween: 24 },
-                            1024: { slidesPerView: 4, spaceBetween: 32 },
-                            1280: { slidesPerView: 5, spaceBetween: 32 },
-                        }}
-                        className="!pb-12 touch-pan-y"
-                    >
-                        {doctors.map((doctor) => (
-                            <SwiperSlide key={doctor.id}>
+                    {/* Mobile: Native CSS Scroll */}
+                    {isMobile ? (
+                        <div
+                            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+                            style={{
+                                WebkitOverflowScrolling: 'touch',
+                                scrollbarWidth: 'none',
+                                msOverflowStyle: 'none'
+                            }}
+                        >
+                            {doctors.map((doctor) => (
                                 <button
+                                    key={doctor.id}
                                     onClick={() => openModal(doctor)}
-                                    className="group flex flex-col items-center gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all duration-300 w-full"
+                                    className="group flex-shrink-0 w-[140px] flex flex-col items-center gap-3 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300 snap-start"
                                 >
                                     {/* Avatar */}
-                                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden ring-4 ring-white/20 group-hover:ring-[#F7931E] transition-all duration-300 shadow-xl group-hover:shadow-[#F7931E]/20">
+                                    <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-white/20 group-hover:ring-[#F7931E] transition-all duration-300 shadow-xl">
                                         <Image
                                             src={doctor.image}
-                                            alt={`${doctor.name} - ${doctor.specialty} at Laone Dental Clinic`}
+                                            alt={`${doctor.name} - ${doctor.specialty}`}
                                             fill
-                                            sizes="(max-width: 640px) 96px, (max-width: 1024px) 112px, 128px"
-                                            className="object-cover group-hover:scale-110 transition-transform duration-500"
-                                            quality={80}
+                                            sizes="96px"
+                                            className="object-cover"
                                             loading="lazy"
                                         />
                                     </div>
                                     {/* Name */}
                                     <div className="text-center">
-                                        <p className="text-white font-semibold text-sm sm:text-base group-hover:text-[#F7931E] transition-colors duration-300">
+                                        <p className="text-white font-semibold text-sm">
                                             {doctor.name.replace("Dr. ", "")}
                                         </p>
-                                        <p className="text-white/60 text-xs sm:text-sm mt-1">
+                                        <p className="text-white/60 text-xs mt-1">
                                             {doctor.specialty}
                                         </p>
                                     </div>
                                 </button>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                            ))}
+                        </div>
+                    ) : (
+                        /* Desktop: Swiper */
+                        <Swiper
+                            modules={[Navigation, Pagination, FreeMode]}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            speed={500}
+                            grabCursor={true}
+                            freeMode={{
+                                enabled: true,
+                                sticky: false,
+                                momentum: true,
+                                momentumRatio: 1,
+                                momentumVelocityRatio: 1,
+                                momentumBounce: true,
+                            }}
+                            navigation={{
+                                prevEl: ".doctor-swiper-prev",
+                                nextEl: ".doctor-swiper-next",
+                            }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
+                            }}
+                            breakpoints={{
+                                768: { slidesPerView: 3, spaceBetween: 24 },
+                                1024: { slidesPerView: 4, spaceBetween: 32 },
+                                1280: { slidesPerView: 5, spaceBetween: 32 },
+                            }}
+                            className="!pb-12"
+                        >
+                            {doctors.map((doctor) => (
+                                <SwiperSlide key={doctor.id}>
+                                    <button
+                                        onClick={() => openModal(doctor)}
+                                        className="group flex flex-col items-center gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all duration-300 w-full"
+                                    >
+                                        {/* Avatar */}
+                                        <div className="relative w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden ring-4 ring-white/20 group-hover:ring-[#F7931E] transition-all duration-300 shadow-xl group-hover:shadow-[#F7931E]/20">
+                                            <Image
+                                                src={doctor.image}
+                                                alt={`${doctor.name} - ${doctor.specialty} at Laone Dental Clinic`}
+                                                fill
+                                                sizes="(max-width: 1024px) 112px, 128px"
+                                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                quality={80}
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        {/* Name */}
+                                        <div className="text-center">
+                                            <p className="text-white font-semibold text-base group-hover:text-[#F7931E] transition-colors duration-300">
+                                                {doctor.name.replace("Dr. ", "")}
+                                            </p>
+                                            <p className="text-white/60 text-sm mt-1">
+                                                {doctor.specialty}
+                                            </p>
+                                        </div>
+                                    </button>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
                 </div>
             </div>
 

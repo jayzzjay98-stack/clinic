@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
@@ -11,6 +11,18 @@ import { useTranslations } from 'next-intl';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+// Hook to detect mobile
+function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+    return isMobile;
+}
 
 // Categories for filtering (key -> internal name mapping)
 const categoryKeys = [
@@ -47,6 +59,7 @@ const cases = [
 export default function CaseGallerySection() {
     const [activeCategory, setActiveCategory] = useState("All");
     const t = useTranslations('cases');
+    const isMobile = useIsMobile();
 
     // Filter cases based on active category
     const filteredCases =
@@ -108,105 +121,155 @@ export default function CaseGallerySection() {
                 </div>
 
                 {/* Carousel */}
-                <div className="relative px-4 sm:px-12 touch-pan-y">
-                    {/* Navigation Arrows */}
-                    <button
-                        className="case-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all border border-white/20"
-                        aria-label="Previous case"
-                    >
-                        <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <button
-                        className="case-swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all border border-white/20"
-                        aria-label="Next case"
-                    >
-                        <ChevronRight className="w-5 h-5" />
-                    </button>
+                <div className="relative px-4 md:px-12">
+                    {/* Navigation Arrows - Desktop only */}
+                    {!isMobile && (
+                        <>
+                            <button
+                                className="case-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all border border-white/20"
+                                aria-label="Previous case"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button
+                                className="case-swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all border border-white/20"
+                                aria-label="Next case"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </>
+                    )}
 
-                    {/* CRITICAL: key={activeCategory} forces React to destroy and re-create Swiper */}
-                    <Swiper
-                        key={activeCategory}
-                        modules={[Navigation, Pagination, FreeMode]}
-                        spaceBetween={20}
-                        slidesPerView={1.2}
-                        speed={500}
-                        touchRatio={1.5}
-                        touchAngle={45}
-                        grabCursor={true}
-                        touchStartPreventDefault={false}
-                        shortSwipes={true}
-                        longSwipes={true}
-                        longSwipesRatio={0.5}
-                        resistance={true}
-                        resistanceRatio={0.85}
-                        freeMode={{
-                            enabled: true,
-                            sticky: false,
-                            momentum: true,
-                            momentumRatio: 1,
-                            momentumVelocityRatio: 1,
-                            momentumBounce: true,
-                        }}
-                        navigation={{
-                            prevEl: ".case-swiper-prev",
-                            nextEl: ".case-swiper-next",
-                        }}
-                        pagination={{
-                            clickable: true,
-                            dynamicBullets: true,
-                        }}
-                        breakpoints={{
-                            640: { slidesPerView: 2.2, spaceBetween: 24 },
-                            1024: { slidesPerView: 3, spaceBetween: 32 },
-                        }}
-                        className="!pb-14 touch-pan-y"
-                    >
-                        {filteredCases.map((item) => (
-                            <SwiperSlide key={item.id}>
-                                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden hover:border-[#a02595]/50 transition-all duration-300 group h-full">
+                    {/* Mobile: Native CSS Scroll */}
+                    {isMobile ? (
+                        <div
+                            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+                            style={{
+                                WebkitOverflowScrolling: 'touch',
+                                scrollbarWidth: 'none',
+                                msOverflowStyle: 'none'
+                            }}
+                        >
+                            {filteredCases.map((item) => (
+                                <div
+                                    key={item.id}
+                                    className="flex-shrink-0 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden snap-start"
+                                >
                                     {/* Before/After Images Side by Side */}
                                     <div className="grid grid-cols-2 gap-0.5 bg-black/20">
-                                        {/* Before Image */}
                                         <div className="relative aspect-square overflow-hidden">
                                             <Image
                                                 src={item.beforeImage}
                                                 alt={`Before ${t(`items.${item.titleKey}.title`)}`}
                                                 fill
-                                                sizes="(max-width: 640px) 50vw, 33vw"
+                                                sizes="140px"
                                                 className="object-cover"
-                                                quality={80}
                                             />
                                         </div>
-
-                                        {/* After Image */}
                                         <div className="relative aspect-square overflow-hidden">
                                             <Image
                                                 src={item.afterImage}
                                                 alt={`After ${t(`items.${item.titleKey}.title`)}`}
                                                 fill
-                                                sizes="(max-width: 640px) 50vw, 33vw"
+                                                sizes="140px"
                                                 className="object-cover"
-                                                quality={80}
                                             />
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-5">
-                                        <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-3">
+                                    <div className="p-4">
+                                        <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-2">
                                             {t(`categories.${item.categoryKey}`)}
                                         </span>
-                                        <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#F7931E] transition-colors">
+                                        <h3 className="text-sm font-bold text-white mb-1">
                                             {t(`items.${item.titleKey}.title`)}
                                         </h3>
-                                        <p className="text-white/60 text-xs leading-relaxed">
+                                        <p className="text-white/60 text-xs leading-relaxed line-clamp-2">
                                             {t(`items.${item.titleKey}.description`)}
                                         </p>
                                     </div>
                                 </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                            ))}
+                        </div>
+                    ) : (
+                        /* Desktop: Swiper */
+                        <Swiper
+                            key={activeCategory}
+                            modules={[Navigation, Pagination, FreeMode]}
+                            spaceBetween={24}
+                            slidesPerView={2}
+                            speed={500}
+                            grabCursor={true}
+                            freeMode={{
+                                enabled: true,
+                                sticky: false,
+                                momentum: true,
+                                momentumRatio: 1,
+                                momentumVelocityRatio: 1,
+                                momentumBounce: true,
+                            }}
+                            navigation={{
+                                prevEl: ".case-swiper-prev",
+                                nextEl: ".case-swiper-next",
+                            }}
+                            pagination={{
+                                clickable: true,
+                                dynamicBullets: true,
+                            }}
+                            breakpoints={{
+                                768: { slidesPerView: 2, spaceBetween: 24 },
+                                1024: { slidesPerView: 3, spaceBetween: 32 },
+                            }}
+                            className="!pb-14"
+                        >
+                            {filteredCases.map((item) => (
+                                <SwiperSlide key={item.id}>
+                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden hover:border-[#a02595]/50 transition-all duration-300 group h-full">
+                                        {/* Before/After Images Side by Side */}
+                                        <div className="grid grid-cols-2 gap-0.5 bg-black/20">
+                                            {/* Before Image */}
+                                            <div className="relative aspect-square overflow-hidden">
+                                                <Image
+                                                    src={item.beforeImage}
+                                                    alt={`Before ${t(`items.${item.titleKey}.title`)}`}
+                                                    fill
+                                                    sizes="(max-width: 1024px) 25vw, 20vw"
+                                                    className="object-cover"
+                                                    quality={80}
+                                                />
+                                            </div>
+
+                                            {/* After Image */}
+                                            <div className="relative aspect-square overflow-hidden">
+                                                <Image
+                                                    src={item.afterImage}
+                                                    alt={`After ${t(`items.${item.titleKey}.title`)}`}
+                                                    fill
+                                                    sizes="(max-width: 1024px) 25vw, 20vw"
+                                                    className="object-cover"
+                                                    quality={80}
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="p-5">
+                                            <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-3">
+                                                {t(`categories.${item.categoryKey}`)}
+                                            </span>
+                                            <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#F7931E] transition-colors">
+                                                {t(`items.${item.titleKey}.title`)}
+                                            </h3>
+                                            <p className="text-white/60 text-xs leading-relaxed">
+                                                {t(`items.${item.titleKey}.description`)}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )}
 
                     {/* Empty State */}
                     {filteredCases.length === 0 && (
