@@ -200,30 +200,26 @@ export default function DoctorSection() {
 
                     <Swiper
                         modules={[Navigation, Pagination, FreeMode]}
-                        spaceBetween={24}
-                        slidesPerView={2}
+                        spaceBetween={20}
+                        slidesPerView={1.5}
+                        speed={500}
+                        touchRatio={1.5}
+                        touchAngle={45}
                         grabCursor={true}
-                        speed={600}
-                        shortSwipes={false}
+                        touchStartPreventDefault={false}
+                        shortSwipes={true}
                         longSwipes={true}
-                        longSwipesRatio={0.1}
-                        longSwipesMs={300}
-                        touchReleaseOnEdges={true}
+                        longSwipesRatio={0.5}
                         resistance={true}
                         resistanceRatio={0.85}
                         freeMode={{
                             enabled: true,
                             sticky: false,
                             momentum: true,
-                            momentumRatio: 0.8,
+                            momentumRatio: 1,
                             momentumVelocityRatio: 1,
                             momentumBounce: true,
-                            momentumBounceRatio: 0.5,
                         }}
-                        touchEventsTarget="container"
-                        touchRatio={1.2}
-                        simulateTouch={true}
-                        allowTouchMove={true}
                         navigation={{
                             prevEl: ".doctor-swiper-prev",
                             nextEl: ".doctor-swiper-next",
@@ -238,8 +234,7 @@ export default function DoctorSection() {
                             1024: { slidesPerView: 4, spaceBetween: 32 },
                             1280: { slidesPerView: 5, spaceBetween: 32 },
                         }}
-                        mousewheel={false}
-                        className="!pb-12"
+                        className="!pb-12 touch-pan-y"
                     >
                         {doctors.map((doctor) => (
                             <SwiperSlide key={doctor.id}>

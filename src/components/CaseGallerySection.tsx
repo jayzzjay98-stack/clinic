@@ -127,30 +127,26 @@ export default function CaseGallerySection() {
                     <Swiper
                         key={activeCategory}
                         modules={[Navigation, Pagination, FreeMode]}
-                        spaceBetween={24}
+                        spaceBetween={20}
                         slidesPerView={1.2}
+                        speed={500}
+                        touchRatio={1.5}
+                        touchAngle={45}
                         grabCursor={true}
-                        speed={600}
-                        shortSwipes={false}
+                        touchStartPreventDefault={false}
+                        shortSwipes={true}
                         longSwipes={true}
-                        longSwipesRatio={0.1}
-                        longSwipesMs={300}
-                        touchReleaseOnEdges={true}
+                        longSwipesRatio={0.5}
                         resistance={true}
                         resistanceRatio={0.85}
                         freeMode={{
                             enabled: true,
                             sticky: false,
                             momentum: true,
-                            momentumRatio: 0.8,
+                            momentumRatio: 1,
                             momentumVelocityRatio: 1,
                             momentumBounce: true,
-                            momentumBounceRatio: 0.5,
                         }}
-                        touchEventsTarget="container"
-                        touchRatio={1.2}
-                        simulateTouch={true}
-                        allowTouchMove={true}
                         navigation={{
                             prevEl: ".case-swiper-prev",
                             nextEl: ".case-swiper-next",
@@ -163,8 +159,7 @@ export default function CaseGallerySection() {
                             640: { slidesPerView: 2.2, spaceBetween: 24 },
                             1024: { slidesPerView: 3, spaceBetween: 32 },
                         }}
-                        mousewheel={false}
-                        className="!pb-14"
+                        className="!pb-14 touch-pan-y"
                     >
                         {filteredCases.map((item) => (
                             <SwiperSlide key={item.id}>
