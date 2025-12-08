@@ -1,9 +1,5 @@
 import Image from "next/image";
-import {
-    Phone,
-    ChevronRight,
-    Stethoscope,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export default function ServicesSection() {
     const services = [
@@ -113,26 +109,6 @@ export default function ServicesSection() {
                         <span>Swipe to see more services</span>
                         <ChevronRight className="w-4 h-4 animate-pulse" />
                     </div>
-                </div>
-
-                {/* More Services Banner */}
-                <div className="mt-12 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-4">
-                        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F7931E] to-[#a02595] flex items-center justify-center">
-                            <Stethoscope className="w-8 h-8 text-white" />
-                        </div>
-                        <div>
-                            <h3 className="text-xl font-bold text-white">More Services</h3>
-                            <p className="text-white/80">Fillings, extractions, root canals, crowns and more</p>
-                        </div>
-                    </div>
-                    <a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all whitespace-nowrap"
-                    >
-                        <Phone className="w-5 h-5" />
-                        Contact Us
-                    </a>
                 </div>
             </div>
         </section>

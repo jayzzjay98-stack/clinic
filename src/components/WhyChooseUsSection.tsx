@@ -131,28 +131,6 @@ export default function WhyChooseUsSection() {
                         </div>
                     </div>
                 </div>
-
-                {/* Stats Bar */}
-                <div className="mt-16 bg-gradient-to-r from-[#F7931E] to-[#a02595] rounded-2xl p-6 sm:p-8 lg:p-12 shadow-xl">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center text-white">
-                        <div>
-                            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">15+</p>
-                            <p className="text-white/80 text-sm sm:text-base">Years Exp.</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">10K+</p>
-                            <p className="text-white/80 text-sm sm:text-base">Patients</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">5</p>
-                            <p className="text-white/80 text-sm sm:text-base">Dentists</p>
-                        </div>
-                        <div>
-                            <p className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-1 sm:mb-2">98%</p>
-                            <p className="text-white/80 text-sm sm:text-base">Satisfied</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     );
