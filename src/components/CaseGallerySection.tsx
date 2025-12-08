@@ -143,7 +143,7 @@ export default function CaseGallerySection() {
                     {/* Mobile: Native CSS Scroll */}
                     {isMobile ? (
                         <div
-                            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory"
+                            className="flex gap-4 overflow-x-auto pb-4 px-4"
                             style={{
                                 WebkitOverflowScrolling: 'touch',
                                 scrollbarWidth: 'none',
@@ -153,7 +153,7 @@ export default function CaseGallerySection() {
                             {filteredCases.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="flex-shrink-0 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden snap-start"
+                                    className="flex-shrink-0 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden"
                                 >
                                     {/* Before/After Images Side by Side */}
                                     <div className="grid grid-cols-2 gap-0.5 bg-black/20">

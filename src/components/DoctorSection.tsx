@@ -218,7 +218,7 @@ export default function DoctorSection() {
                     {/* Mobile: Native CSS Scroll */}
                     {isMobile ? (
                         <div
-                            className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+                            className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide"
                             style={{
                                 WebkitOverflowScrolling: 'touch',
                                 scrollbarWidth: 'none',
@@ -229,7 +229,7 @@ export default function DoctorSection() {
                                 <button
                                     key={doctor.id}
                                     onClick={() => openModal(doctor)}
-                                    className="group flex-shrink-0 w-[140px] flex flex-col items-center gap-3 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300 snap-start"
+                                    className="group flex-shrink-0 w-[140px] flex flex-col items-center gap-3 p-3 rounded-2xl hover:bg-white/5 transition-all duration-300"
                                 >
                                     {/* Avatar */}
                                     <div className="relative w-24 h-24 rounded-full overflow-hidden ring-4 ring-white/20 group-hover:ring-[#F7931E] transition-all duration-300 shadow-xl">
