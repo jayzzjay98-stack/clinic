@@ -162,7 +162,7 @@ export default function DoctorSection() {
     }, [selectedDoctor]);
 
     return (
-        <section id="doctor" className="py-20 lg:py-28 relative">
+        <section id="doctor" className="py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-bl from-[#a02595]/10 to-orange-500/10" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

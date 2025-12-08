@@ -25,7 +25,7 @@ export default function WhyChooseUsSection() {
     ];
 
     return (
-        <section id="why-us" className="py-20 lg:py-28 relative">
+        <section id="why-us" className="py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-[#c94eb8]/10" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

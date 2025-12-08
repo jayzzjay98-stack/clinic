@@ -34,7 +34,7 @@ export default function ServicesSection() {
     ];
 
     return (
-        <section id="services" className="py-20 lg:py-28 relative">
+        <section id="services" className="py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
