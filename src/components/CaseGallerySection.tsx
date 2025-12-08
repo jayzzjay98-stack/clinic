@@ -23,25 +23,25 @@ const categoryKeys = [
 
 // Case studies data with translation keys
 const cases = [
-    // ORTHODONTICS
-    { id: 1, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "crowdedTeeth", beforeImage: "/cases/ortho_asian_before_1.jpg", afterImage: "/cases/ortho_asian_after_1.jpg" },
-    { id: 2, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "gapClosure", beforeImage: "/cases/ortho_asian_before_2.jpg", afterImage: "/cases/ortho_asian_after_2.jpg" },
-    { id: 3, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "overbiteCorrection", beforeImage: "/cases/ortho_western_before_1.jpg", afterImage: "/cases/ortho_western_after_1.jpg" },
+    // ORTHODONTICS - จัดฟัน (รูปเหล็กจัดฟัน)
+    { id: 1, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "crowdedTeeth", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
+    { id: 2, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "gapClosure", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
+    { id: 3, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "overbiteCorrection", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
 
-    // IMPLANTS
-    { id: 4, category: "Implants", categoryKey: "implants", titleKey: "singleImplant", beforeImage: "/cases/implant_asian_before_1.jpg", afterImage: "/cases/implant_asian_after_1.jpg" },
-    { id: 5, category: "Implants", categoryKey: "implants", titleKey: "fullArch", beforeImage: "/cases/implant_asian_before_2.jpg", afterImage: "/cases/implant_asian_after_2.jpg" },
-    { id: 6, category: "Implants", categoryKey: "implants", titleKey: "multipleImplants", beforeImage: "/cases/implant_western_before_1.jpg", afterImage: "/cases/implant_western_after_1.jpg" },
+    // IMPLANTS - รากฟันเทียม (รูปรากเทียม)
+    { id: 4, category: "Implants", categoryKey: "implants", titleKey: "singleImplant", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
+    { id: 5, category: "Implants", categoryKey: "implants", titleKey: "fullArch", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
+    { id: 6, category: "Implants", categoryKey: "implants", titleKey: "multipleImplants", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
 
-    // WHITENING
-    { id: 7, category: "Whitening", categoryKey: "whitening", titleKey: "laserWhitening", beforeImage: "/cases/whitening_asian_before_1.jpg", afterImage: "/cases/whitening_asian_after_1.jpg" },
-    { id: 8, category: "Whitening", categoryKey: "whitening", titleKey: "stainRemoval", beforeImage: "/cases/whitening_asian_before_2.jpg", afterImage: "/cases/whitening_asian_after_2.jpg" },
-    { id: 9, category: "Whitening", categoryKey: "whitening", titleKey: "zoomTreatment", beforeImage: "/cases/whitening_western_before_1.jpg", afterImage: "/cases/whitening_western_after_1.jpg" },
+    // WHITENING - ฟอกสีฟัน (รูปฟอกฟัน)
+    { id: 7, category: "Whitening", categoryKey: "whitening", titleKey: "laserWhitening", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
+    { id: 8, category: "Whitening", categoryKey: "whitening", titleKey: "stainRemoval", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
+    { id: 9, category: "Whitening", categoryKey: "whitening", titleKey: "zoomTreatment", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
 
-    // VENEERS
-    { id: 10, category: "Veneers", categoryKey: "veneers", titleKey: "hollywoodSmile", beforeImage: "/cases/veneers_asian_before_1.jpg", afterImage: "/cases/veneers_asian_after_1.jpg" },
-    { id: 11, category: "Veneers", categoryKey: "veneers", titleKey: "smileMakeover", beforeImage: "/cases/veneers_before_1.jpg", afterImage: "/cases/veneers_after_1.jpg" },
-    { id: 12, category: "Veneers", categoryKey: "veneers", titleKey: "celebritySmile", beforeImage: "/cases/veneers_before_2.jpg", afterImage: "/cases/veneers_after_1.jpg" },
+    // VENEERS - วีเนียร์ (รูปวีเนียร์)
+    { id: 10, category: "Veneers", categoryKey: "veneers", titleKey: "hollywoodSmile", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
+    { id: 11, category: "Veneers", categoryKey: "veneers", titleKey: "smileMakeover", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
+    { id: 12, category: "Veneers", categoryKey: "veneers", titleKey: "celebritySmile", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
 ];
 
 export default function CaseGallerySection() {
@@ -70,6 +70,7 @@ export default function CaseGallerySection() {
                     width={140}
                     height={80}
                     className="object-contain"
+                    style={{ width: 'auto', height: 'auto' }}
                     aria-hidden="true"
                 />
             </div>
@@ -81,7 +82,7 @@ export default function CaseGallerySection() {
                         {t('subtitle')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+                        <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
                     </h2>
@@ -107,7 +108,7 @@ export default function CaseGallerySection() {
                 </div>
 
                 {/* Carousel */}
-                <div className="relative px-4 sm:px-12">
+                <div className="relative px-4 sm:px-12 touch-pan-y">
                     {/* Navigation Arrows */}
                     <button
                         className="case-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all border border-white/20"
@@ -129,11 +130,20 @@ export default function CaseGallerySection() {
                         spaceBetween={24}
                         slidesPerView={1.2}
                         grabCursor={true}
+                        speed={600}
+                        shortSwipes={false}
+                        longSwipes={true}
+                        longSwipesRatio={0.1}
+                        longSwipesMs={300}
+                        touchReleaseOnEdges={true}
+                        resistance={true}
+                        resistanceRatio={0.85}
                         freeMode={{
                             enabled: true,
+                            sticky: false,
                             momentum: true,
                             momentumRatio: 0.8,
-                            momentumVelocityRatio: 0.6,
+                            momentumVelocityRatio: 1,
                             momentumBounce: true,
                             momentumBounceRatio: 0.5,
                         }}
@@ -141,7 +151,6 @@ export default function CaseGallerySection() {
                         touchRatio={1.2}
                         simulateTouch={true}
                         allowTouchMove={true}
-                        speed={500}
                         navigation={{
                             prevEl: ".case-swiper-prev",
                             nextEl: ".case-swiper-next",
@@ -154,6 +163,7 @@ export default function CaseGallerySection() {
                             640: { slidesPerView: 2.2, spaceBetween: 24 },
                             1024: { slidesPerView: 3, spaceBetween: 32 },
                         }}
+                        mousewheel={false}
                         className="!pb-14"
                     >
                         {filteredCases.map((item) => (

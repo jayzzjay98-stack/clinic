@@ -173,7 +173,7 @@ export default function DoctorSection() {
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                         Our{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+                        <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             Dental Team
                         </span>
                     </h2>
@@ -183,7 +183,7 @@ export default function DoctorSection() {
                 </div>
 
                 {/* Swiper Carousel with FreeMode */}
-                <div className="relative px-12">
+                <div className="relative px-12 touch-pan-y">
                     {/* Custom Navigation Buttons */}
                     <button
                         className="doctor-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
@@ -203,11 +203,20 @@ export default function DoctorSection() {
                         spaceBetween={24}
                         slidesPerView={2}
                         grabCursor={true}
+                        speed={600}
+                        shortSwipes={false}
+                        longSwipes={true}
+                        longSwipesRatio={0.1}
+                        longSwipesMs={300}
+                        touchReleaseOnEdges={true}
+                        resistance={true}
+                        resistanceRatio={0.85}
                         freeMode={{
                             enabled: true,
+                            sticky: false,
                             momentum: true,
                             momentumRatio: 0.8,
-                            momentumVelocityRatio: 0.6,
+                            momentumVelocityRatio: 1,
                             momentumBounce: true,
                             momentumBounceRatio: 0.5,
                         }}
@@ -215,7 +224,6 @@ export default function DoctorSection() {
                         touchRatio={1.2}
                         simulateTouch={true}
                         allowTouchMove={true}
-                        speed={500}
                         navigation={{
                             prevEl: ".doctor-swiper-prev",
                             nextEl: ".doctor-swiper-next",
@@ -230,6 +238,7 @@ export default function DoctorSection() {
                             1024: { slidesPerView: 4, spaceBetween: 32 },
                             1280: { slidesPerView: 5, spaceBetween: 32 },
                         }}
+                        mousewheel={false}
                         className="!pb-12"
                     >
                         {doctors.map((doctor) => (

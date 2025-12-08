@@ -30,7 +30,7 @@ export default function HeroSection() {
 
                         <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
                             <span className="block">{t('title1')}</span>
-                            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#FBB03B]">
+                            <span className="block text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                                 {t('title2')}
                             </span>
                             <span className="block">{t('title3')}</span>
@@ -68,6 +68,7 @@ export default function HeroSection() {
                                         width={48}
                                         height={48}
                                         className="object-cover w-full h-full"
+                                        style={{ width: '100%', height: '100%' }}
                                         quality={80}
                                     />
                                 </div>
@@ -78,6 +79,7 @@ export default function HeroSection() {
                                         width={48}
                                         height={48}
                                         className="object-cover w-full h-full"
+                                        style={{ width: '100%', height: '100%' }}
                                         quality={80}
                                     />
                                 </div>
@@ -88,6 +90,7 @@ export default function HeroSection() {
                                         width={48}
                                         height={48}
                                         className="object-cover w-full h-full"
+                                        style={{ width: '100%', height: '100%' }}
                                         quality={80}
                                     />
                                 </div>

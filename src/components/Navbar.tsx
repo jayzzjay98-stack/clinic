@@ -29,13 +29,13 @@ export default function Navbar() {
                 <div className="px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo - Fixed dimensions to prevent layout shift */}
-                        <a href="#" className="flex items-center">
-                            <div className="w-[160px] h-16 lg:w-[200px] lg:h-20 relative flex-shrink-0">
+                        <a href="#" className="flex items-center mt-9">
+                            <div className="w-[200px] h-20 lg:w-[250px] lg:h-24 relative flex-shrink-0">
                                 <Image
-                                    src="/laone-logo-transparent.png"
+                                    src="/laone-logo-v2.png"
                                     alt="Laone Dental"
                                     fill
-                                    sizes="200px"
+                                    sizes="180px"
                                     className="object-contain object-left"
                                     priority
                                 />
@@ -57,20 +57,6 @@ export default function Navbar() {
 
                         {/* CTA Button */}
                         <div className="flex items-center gap-4">
-                            <a
-                                href="tel:+85620581555555"
-                                className="hidden md:flex items-center gap-2 text-white font-semibold"
-                            >
-                                <Phone className="w-4 h-4" />
-                                020 5815 5555
-                            </a>
-                            <a
-                                href="#contact"
-                                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-[#a02595]/30 transition-all transform hover:-translate-y-0.5"
-                            >
-                                <Calendar className="w-4 h-4" />
-                                {t('bookNow')}
-                            </a>
 
                             {/* Language Switcher */}
                             <LanguageSwitcher />

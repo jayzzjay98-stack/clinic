@@ -72,7 +72,7 @@ export default function WhyChooseUsSection() {
                         {/* Bottom left image */}
                         <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg relative">
                             <Image
-                                src="/teeth-whitening.png"
+                                src="/teeth-whitening.jpg"
                                 alt="Professional LED teeth whitening treatment"
                                 fill
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"
@@ -102,7 +102,7 @@ export default function WhyChooseUsSection() {
                                 {t('subtitle')}
                             </span>
                             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6">
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+                                <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                                     {t('title')}
                                 </span>
                             </h2>

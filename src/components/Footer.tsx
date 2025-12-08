@@ -67,7 +67,7 @@ export default function Footer() {
                         <div className="lg:col-span-1">
                             <a href="#" className="block mb-6">
                                 <Image
-                                    src="/laone-logo-transparent.jpg"
+                                    src="/laone-logo-v2.png"
                                     alt="Laone Dental Clinic Logo - Expert Dental Care in Vientiane"
                                     width={200}
                                     height={100}

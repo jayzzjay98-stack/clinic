@@ -42,6 +42,7 @@ export default function ServicesSection() {
                     width={150}
                     height={85}
                     className="object-contain"
+                    style={{ width: 'auto', height: 'auto' }}
                     aria-hidden="true"
                 />
             </div>
@@ -53,7 +54,7 @@ export default function ServicesSection() {
                         {t('subtitle')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+                        <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
                     </h2>
