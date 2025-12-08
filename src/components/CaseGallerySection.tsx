@@ -14,99 +14,119 @@ import "swiper/css/pagination";
 // Categories for filtering
 const categories = ["All", "Orthodontics", "Implants", "Whitening", "Veneers"];
 
-// Case studies data with locally generated dental images
+// Case studies data with Asian and Western patient dental images
+// Each category has 6 cases: 4 Asian patients + 2 Western patients (1 Western pair displayed)
 const cases = [
-    // Orthodontics - 3 cases
+    // ===== ORTHODONTICS - 6 cases (4 Asian + 2 Western) =====
+    // Asian patients (2 pairs = 4 images)
     {
         id: 1,
         category: "Orthodontics",
         title: "Crowded Teeth Fix",
-        description: "14-month metal braces treatment for severe crowding.",
-        beforeImage: "/cases/ortho_before_1.png",
-        afterImage: "/cases/ortho_after_1.png",
+        description: "14-month metal braces treatment for severe crowding. (Asian Patient)",
+        beforeImage: "/cases/ortho_asian_before_1.png",
+        afterImage: "/cases/ortho_asian_after_1.png",
     },
     {
         id: 2,
         category: "Orthodontics",
         title: "Gap Closure",
-        description: "Invisalign treatment to close front tooth gaps.",
-        beforeImage: "/cases/ortho_before_2.png",
-        afterImage: "/cases/ortho_after_2.png",
+        description: "Invisalign treatment to close front tooth gaps. (Asian Patient)",
+        beforeImage: "/cases/ortho_asian_before_2.png",
+        afterImage: "/cases/ortho_asian_after_2.png",
     },
+    // Western patients (1 pair = 2 images)
     {
         id: 3,
         category: "Orthodontics",
         title: "Overbite Correction",
-        description: "24-month braces for severe overbite.",
-        beforeImage: "/cases/ortho_before_3.png",
-        afterImage: "/cases/ortho_after_3.png",
+        description: "24-month braces for severe overbite. (Western Patient)",
+        beforeImage: "/cases/ortho_western_before_1.png",
+        afterImage: "/cases/ortho_western_after_1.png",
     },
-    // Implants - 3 cases
+
+    // ===== IMPLANTS - 6 cases (4 Asian + 2 Western) =====
+    // Asian patients (2 pairs = 4 images)
     {
         id: 4,
         category: "Implants",
         title: "Single Molar Implant",
-        description: "Titanium implant with ceramic crown.",
-        beforeImage: "/cases/implant_before_1.png",
-        afterImage: "/cases/implant_after_1.png",
+        description: "Titanium implant with ceramic crown. (Asian Patient)",
+        beforeImage: "/cases/implant_asian_before_1.png",
+        afterImage: "/cases/implant_asian_after_1.png",
     },
     {
         id: 5,
         category: "Implants",
         title: "Full Arch Restoration",
-        description: "All-on-4 complete smile restoration.",
-        beforeImage: "/cases/implant_before_2.png",
-        afterImage: "/cases/implant_after_2.png",
+        description: "All-on-4 complete smile restoration. (Asian Patient)",
+        beforeImage: "/cases/implant_asian_before_2.png",
+        afterImage: "/cases/implant_asian_after_2.png",
     },
+    // Western patients (1 pair = 2 images)
     {
         id: 6,
         category: "Implants",
         title: "Multiple Implants",
-        description: "3 implants for missing molars.",
-        beforeImage: "/cases/implant_before_3.png",
-        afterImage: "/cases/implant_after_3.png",
+        description: "3 implants for missing molars. (Western Patient)",
+        beforeImage: "/cases/implant_western_before_1.png",
+        afterImage: "/cases/implant_western_after_1.png",
     },
-    // Whitening - 3 cases
+
+    // ===== WHITENING - 6 cases (4 Asian + 2 Western) =====
+    // Asian patients (2 pairs = 4 images)
     {
         id: 7,
         category: "Whitening",
         title: "Laser Whitening",
-        description: "8 shades whiter in one hour.",
-        beforeImage: "/cases/whitening_before_1.png",
-        afterImage: "/cases/whitening_after_1.png",
+        description: "8 shades whiter in one hour. (Asian Patient)",
+        beforeImage: "/cases/whitening_asian_before_1.png",
+        afterImage: "/cases/whitening_asian_after_1.png",
     },
     {
         id: 8,
         category: "Whitening",
         title: "Stain Removal",
-        description: "Professional cleaning for tobacco stains.",
-        beforeImage: "/cases/whitening_before_2.png",
-        afterImage: "/cases/whitening_after_2.png",
+        description: "Professional cleaning for tobacco stains. (Asian Patient)",
+        beforeImage: "/cases/whitening_asian_before_2.png",
+        afterImage: "/cases/whitening_asian_after_2.png",
     },
+    // Western patients (1 pair = 2 images)
     {
         id: 9,
         category: "Whitening",
         title: "Zoom Treatment",
-        description: "Coffee stain removal with Zoom whitening.",
-        beforeImage: "/cases/whitening_before_3.png",
-        afterImage: "/cases/whitening_after_3.png",
+        description: "Coffee stain removal with Zoom whitening. (Western Patient)",
+        beforeImage: "/cases/whitening_western_before_1.png",
+        afterImage: "/cases/whitening_western_after_1.png",
     },
-    // Veneers - 2 cases (using whitening after as placeholder for 2nd)
+
+    // ===== VENEERS - 6 cases (4 Asian + 2 Western) =====
+    // Asian patients (2 pairs = 4 images, using 1 new + 1 existing)
     {
         id: 10,
         category: "Veneers",
         title: "Hollywood Smile",
-        description: "8 porcelain veneers for perfect shape.",
-        beforeImage: "/cases/veneers_before_1.png",
-        afterImage: "/cases/veneers_after_1.png",
+        description: "8 porcelain veneers for perfect shape. (Asian Patient)",
+        beforeImage: "/cases/veneers_asian_before_1.png",
+        afterImage: "/cases/veneers_asian_after_1.png",
     },
     {
         id: 11,
         category: "Veneers",
         title: "Smile Makeover",
-        description: "Complete veneer transformation.",
+        description: "Complete veneer transformation. (Asian Patient)",
+        beforeImage: "/cases/veneers_before_1.png",
+        afterImage: "/cases/veneers_after_1.png",
+    },
+    // Western patients (1 pair = 2 images, using existing)
+    {
+        id: 12,
+        category: "Veneers",
+        title: "Celebrity Smile",
+        description: "Premium porcelain veneers for red carpet ready smile. (Western Patient)",
         beforeImage: "/cases/veneers_before_2.png",
-        afterImage: "/cases/veneers_after_1.png", // Reusing after image
+        afterImage: "/cases/veneers_after_1.png",
     },
 ];
 
@@ -150,8 +170,8 @@ export default function CaseGallerySection() {
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${activeCategory === cat
-                                    ? "bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white shadow-lg scale-105"
-                                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+                                ? "bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white shadow-lg scale-105"
+                                : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                 }`}
                         >
                             {cat}
