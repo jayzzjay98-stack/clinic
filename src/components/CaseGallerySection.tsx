@@ -247,9 +247,6 @@ export default function CaseGallerySection() {
                                                 className="object-cover"
                                                 quality={80}
                                             />
-                                            <div className="absolute top-2 left-2 px-2 py-0.5 bg-black/60 backdrop-blur-sm rounded text-[10px] font-bold text-white uppercase tracking-wider border border-white/10">
-                                                Before
-                                            </div>
                                         </div>
 
                                         {/* After Image */}
@@ -262,9 +259,6 @@ export default function CaseGallerySection() {
                                                 className="object-cover"
                                                 quality={80}
                                             />
-                                            <div className="absolute top-2 right-2 px-2 py-0.5 bg-[#a02595] backdrop-blur-sm rounded text-[10px] font-bold text-white uppercase tracking-wider shadow-lg">
-                                                After
-                                            </div>
                                         </div>
                                     </div>
 
