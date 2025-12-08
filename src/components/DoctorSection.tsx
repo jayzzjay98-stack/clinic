@@ -205,10 +205,17 @@ export default function DoctorSection() {
                         freeMode={{
                             enabled: true,
                             sticky: false,
-                            momentumRatio: 0.5,
-                            momentumVelocityRatio: 0.5,
+                            momentumRatio: 1,
+                            momentumVelocityRatio: 1,
+                            momentumBounce: true,
+                            momentumBounceRatio: 1,
                         }}
                         grabCursor={true}
+                        touchRatio={1.5}
+                        touchReleaseOnEdges={true}
+                        resistance={true}
+                        resistanceRatio={0.85}
+                        speed={300}
                         navigation={{
                             prevEl: ".doctor-swiper-prev",
                             nextEl: ".doctor-swiper-next",
