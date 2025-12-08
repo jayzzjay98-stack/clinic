@@ -5,133 +5,48 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// Categories for filtering
-const categories = ["All", "Orthodontics", "Implants", "Whitening", "Veneers"];
+// Categories for filtering (key -> internal name mapping)
+const categoryKeys = [
+    { key: "all", internal: "All" },
+    { key: "orthodontics", internal: "Orthodontics" },
+    { key: "implants", internal: "Implants" },
+    { key: "whitening", internal: "Whitening" },
+    { key: "veneers", internal: "Veneers" }
+];
 
-// Case studies data with Asian and Western patient dental images
-// Each category has 6 cases: 4 Asian patients + 2 Western patients (1 Western pair displayed)
+// Case studies data with translation keys
 const cases = [
-    // ===== ORTHODONTICS - 6 cases (4 Asian + 2 Western) =====
-    // Asian patients (2 pairs = 4 images)
-    {
-        id: 1,
-        category: "Orthodontics",
-        title: "Crowded Teeth Fix",
-        description: "14-month metal braces treatment for severe crowding. (Asian Patient)",
-        beforeImage: "/cases/ortho_asian_before_1.png",
-        afterImage: "/cases/ortho_asian_after_1.png",
-    },
-    {
-        id: 2,
-        category: "Orthodontics",
-        title: "Gap Closure",
-        description: "Invisalign treatment to close front tooth gaps. (Asian Patient)",
-        beforeImage: "/cases/ortho_asian_before_2.png",
-        afterImage: "/cases/ortho_asian_after_2.png",
-    },
-    // Western patients (1 pair = 2 images)
-    {
-        id: 3,
-        category: "Orthodontics",
-        title: "Overbite Correction",
-        description: "24-month braces for severe overbite. (Western Patient)",
-        beforeImage: "/cases/ortho_western_before_1.png",
-        afterImage: "/cases/ortho_western_after_1.png",
-    },
+    // ORTHODONTICS
+    { id: 1, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "crowdedTeeth", beforeImage: "/cases/ortho_asian_before_1.jpg", afterImage: "/cases/ortho_asian_after_1.jpg" },
+    { id: 2, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "gapClosure", beforeImage: "/cases/ortho_asian_before_2.jpg", afterImage: "/cases/ortho_asian_after_2.jpg" },
+    { id: 3, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "overbiteCorrection", beforeImage: "/cases/ortho_western_before_1.jpg", afterImage: "/cases/ortho_western_after_1.jpg" },
 
-    // ===== IMPLANTS - 6 cases (4 Asian + 2 Western) =====
-    // Asian patients (2 pairs = 4 images)
-    {
-        id: 4,
-        category: "Implants",
-        title: "Single Molar Implant",
-        description: "Titanium implant with ceramic crown. (Asian Patient)",
-        beforeImage: "/cases/implant_asian_before_1.png",
-        afterImage: "/cases/implant_asian_after_1.png",
-    },
-    {
-        id: 5,
-        category: "Implants",
-        title: "Full Arch Restoration",
-        description: "All-on-4 complete smile restoration. (Asian Patient)",
-        beforeImage: "/cases/implant_asian_before_2.png",
-        afterImage: "/cases/implant_asian_after_2.png",
-    },
-    // Western patients (1 pair = 2 images)
-    {
-        id: 6,
-        category: "Implants",
-        title: "Multiple Implants",
-        description: "3 implants for missing molars. (Western Patient)",
-        beforeImage: "/cases/implant_western_before_1.png",
-        afterImage: "/cases/implant_western_after_1.png",
-    },
+    // IMPLANTS
+    { id: 4, category: "Implants", categoryKey: "implants", titleKey: "singleImplant", beforeImage: "/cases/implant_asian_before_1.jpg", afterImage: "/cases/implant_asian_after_1.jpg" },
+    { id: 5, category: "Implants", categoryKey: "implants", titleKey: "fullArch", beforeImage: "/cases/implant_asian_before_2.jpg", afterImage: "/cases/implant_asian_after_2.jpg" },
+    { id: 6, category: "Implants", categoryKey: "implants", titleKey: "multipleImplants", beforeImage: "/cases/implant_western_before_1.jpg", afterImage: "/cases/implant_western_after_1.jpg" },
 
-    // ===== WHITENING - 6 cases (4 Asian + 2 Western) =====
-    // Asian patients (2 pairs = 4 images)
-    {
-        id: 7,
-        category: "Whitening",
-        title: "Laser Whitening",
-        description: "8 shades whiter in one hour. (Asian Patient)",
-        beforeImage: "/cases/whitening_asian_before_1.png",
-        afterImage: "/cases/whitening_asian_after_1.png",
-    },
-    {
-        id: 8,
-        category: "Whitening",
-        title: "Stain Removal",
-        description: "Professional cleaning for tobacco stains. (Asian Patient)",
-        beforeImage: "/cases/whitening_asian_before_2.png",
-        afterImage: "/cases/whitening_asian_after_2.png",
-    },
-    // Western patients (1 pair = 2 images)
-    {
-        id: 9,
-        category: "Whitening",
-        title: "Zoom Treatment",
-        description: "Coffee stain removal with Zoom whitening. (Western Patient)",
-        beforeImage: "/cases/whitening_western_before_1.png",
-        afterImage: "/cases/whitening_western_after_1.png",
-    },
+    // WHITENING
+    { id: 7, category: "Whitening", categoryKey: "whitening", titleKey: "laserWhitening", beforeImage: "/cases/whitening_asian_before_1.jpg", afterImage: "/cases/whitening_asian_after_1.jpg" },
+    { id: 8, category: "Whitening", categoryKey: "whitening", titleKey: "stainRemoval", beforeImage: "/cases/whitening_asian_before_2.jpg", afterImage: "/cases/whitening_asian_after_2.jpg" },
+    { id: 9, category: "Whitening", categoryKey: "whitening", titleKey: "zoomTreatment", beforeImage: "/cases/whitening_western_before_1.jpg", afterImage: "/cases/whitening_western_after_1.jpg" },
 
-    // ===== VENEERS - 6 cases (4 Asian + 2 Western) =====
-    // Asian patients (2 pairs = 4 images, using 1 new + 1 existing)
-    {
-        id: 10,
-        category: "Veneers",
-        title: "Hollywood Smile",
-        description: "8 porcelain veneers for perfect shape. (Asian Patient)",
-        beforeImage: "/cases/veneers_asian_before_1.png",
-        afterImage: "/cases/veneers_asian_after_1.png",
-    },
-    {
-        id: 11,
-        category: "Veneers",
-        title: "Smile Makeover",
-        description: "Complete veneer transformation. (Asian Patient)",
-        beforeImage: "/cases/veneers_before_1.png",
-        afterImage: "/cases/veneers_after_1.png",
-    },
-    // Western patients (1 pair = 2 images, using existing)
-    {
-        id: 12,
-        category: "Veneers",
-        title: "Celebrity Smile",
-        description: "Premium porcelain veneers for red carpet ready smile. (Western Patient)",
-        beforeImage: "/cases/veneers_before_2.png",
-        afterImage: "/cases/veneers_after_1.png",
-    },
+    // VENEERS
+    { id: 10, category: "Veneers", categoryKey: "veneers", titleKey: "hollywoodSmile", beforeImage: "/cases/veneers_asian_before_1.jpg", afterImage: "/cases/veneers_asian_after_1.jpg" },
+    { id: 11, category: "Veneers", categoryKey: "veneers", titleKey: "smileMakeover", beforeImage: "/cases/veneers_before_1.jpg", afterImage: "/cases/veneers_after_1.jpg" },
+    { id: 12, category: "Veneers", categoryKey: "veneers", titleKey: "celebritySmile", beforeImage: "/cases/veneers_before_2.jpg", afterImage: "/cases/veneers_after_1.jpg" },
 ];
 
 export default function CaseGallerySection() {
     const [activeCategory, setActiveCategory] = useState("All");
+    const t = useTranslations('cases');
 
     // Filter cases based on active category
     const filteredCases =
@@ -147,34 +62,46 @@ export default function CaseGallerySection() {
             {/* Background - pointer-events-none prevents blocking clicks */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#a02595]/10 via-transparent to-orange-500/10 pointer-events-none" />
 
+            {/* Cute tooth decoration - left side */}
+            <div className="absolute top-20 left-4 lg:left-8 hidden lg:block opacity-80 animate-bounce-slow">
+                <Image
+                    src="/cute-teeth-small.png"
+                    alt=""
+                    width={140}
+                    height={80}
+                    className="object-contain"
+                    aria-hidden="true"
+                />
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-10">
                     <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                        Success Stories
+                        {t('subtitle')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
-                            Real Transformations
+                            {t('title')}
                         </span>
                     </h2>
                     <p className="text-base text-white/80">
-                        See the results we&apos;ve achieved for our happy patients.
+                        {t('description')}
                     </p>
                 </div>
 
                 {/* Category Filter Tabs - relative z-50 ensures clickability */}
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 relative z-50">
-                    {categories.map((cat) => (
+                    {categoryKeys.map((cat) => (
                         <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${activeCategory === cat
+                            key={cat.internal}
+                            onClick={() => setActiveCategory(cat.internal)}
+                            className={`px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${activeCategory === cat.internal
                                 ? "bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white shadow-lg scale-105"
                                 : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
                                 }`}
                         >
-                            {cat}
+                            {t(`categories.${cat.key}`)}
                         </button>
                     ))}
                 </div>
@@ -202,22 +129,19 @@ export default function CaseGallerySection() {
                         spaceBetween={24}
                         slidesPerView={1.2}
                         grabCursor={true}
-                        observer={true}
-                        observeParents={true}
                         freeMode={{
                             enabled: true,
-                            sticky: false,
-                            momentumRatio: 1.2,
-                            momentumVelocityRatio: 1.2,
+                            momentum: true,
+                            momentumRatio: 0.8,
+                            momentumVelocityRatio: 0.6,
                             momentumBounce: true,
-                            momentumBounceRatio: 1,
+                            momentumBounceRatio: 0.5,
                         }}
-                        touchRatio={1.5}
-                        touchReleaseOnEdges={true}
-                        resistance={true}
-                        resistanceRatio={0.5}
-                        speed={250}
-                        cssMode={true}
+                        touchEventsTarget="container"
+                        touchRatio={1.2}
+                        simulateTouch={true}
+                        allowTouchMove={true}
+                        speed={500}
                         navigation={{
                             prevEl: ".case-swiper-prev",
                             nextEl: ".case-swiper-next",
@@ -228,7 +152,7 @@ export default function CaseGallerySection() {
                         }}
                         breakpoints={{
                             640: { slidesPerView: 2.2, spaceBetween: 24 },
-                            1024: { slidesPerView: 3, spaceBetween: 32, cssMode: false },
+                            1024: { slidesPerView: 3, spaceBetween: 32 },
                         }}
                         className="!pb-14"
                     >
@@ -241,7 +165,7 @@ export default function CaseGallerySection() {
                                         <div className="relative aspect-square overflow-hidden">
                                             <Image
                                                 src={item.beforeImage}
-                                                alt={`Before ${item.title}`}
+                                                alt={`Before ${t(`items.${item.titleKey}.title`)}`}
                                                 fill
                                                 sizes="(max-width: 640px) 50vw, 33vw"
                                                 className="object-cover"
@@ -253,7 +177,7 @@ export default function CaseGallerySection() {
                                         <div className="relative aspect-square overflow-hidden">
                                             <Image
                                                 src={item.afterImage}
-                                                alt={`After ${item.title}`}
+                                                alt={`After ${t(`items.${item.titleKey}.title`)}`}
                                                 fill
                                                 sizes="(max-width: 640px) 50vw, 33vw"
                                                 className="object-cover"
@@ -265,13 +189,13 @@ export default function CaseGallerySection() {
                                     {/* Content */}
                                     <div className="p-5">
                                         <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-3">
-                                            {item.category}
+                                            {t(`categories.${item.categoryKey}`)}
                                         </span>
                                         <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#F7931E] transition-colors">
-                                            {item.title}
+                                            {t(`items.${item.titleKey}.title`)}
                                         </h3>
                                         <p className="text-white/60 text-xs leading-relaxed">
-                                            {item.description}
+                                            {t(`items.${item.titleKey}.description`)}
                                         </p>
                                     </div>
                                 </div>

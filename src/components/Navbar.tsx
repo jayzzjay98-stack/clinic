@@ -3,16 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Calendar, Phone, Menu, X } from "lucide-react";
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const t = useTranslations('nav');
 
     const navLinks = [
-        { name: "Services", href: "#services" },
-        { name: "Why Us", href: "#why-us" },
-        { name: "Doctor", href: "#doctor" },
-        { name: "Reviews", href: "#reviews" },
-        { name: "Contact", href: "#contact" },
+        { name: t('services'), href: "#services" },
+        { name: t('whyUs'), href: "#why-us" },
+        { name: t('doctor'), href: "#doctor" },
+        { name: t('reviews'), href: "#reviews" },
+        { name: t('contact'), href: "#contact" },
     ];
 
     return (
@@ -66,10 +69,11 @@ export default function Navbar() {
                                 className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg hover:shadow-[#a02595]/30 transition-all transform hover:-translate-y-0.5"
                             >
                                 <Calendar className="w-4 h-4" />
-                                Book Now
+                                {t('bookNow')}
                             </a>
 
-                            {/* Mobile Menu Button - Only show when menu is closed */}
+                            {/* Language Switcher */}
+                            <LanguageSwitcher />
                             {!isMobileMenuOpen && (
                                 <button
                                     onClick={() => setIsMobileMenuOpen(true)}

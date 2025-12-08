@@ -1,0 +1,164 @@
+{
+    "nav": {
+        "services": "Services",
+        "whyUs": "Why Us",
+        "doctor": "Doctor",
+        "reviews": "Reviews",
+        "contact": "Contact",
+        "bookNow": "Book Now"
+    },
+    "hero": {
+        "badge": "Trusted by over 10,000+ customers",
+        "title1": "Every Smile",
+        "title2": "Shines Bright",
+        "title3": "Starts Here",
+        "subtitle": "Comprehensive dental care with modern technology by our expert dental team",
+        "bookFree": "Book Free",
+        "callUs": "Call Us",
+        "reviews": "500+ Reviews 4.9 Rating"
+    },
+    "services": {
+        "subtitle": "Our Expertise",
+        "title": "Dental Services",
+        "description": "Premium dental care with world-class dentists and modern facilities",
+        "bookNow": "Book Now",
+        "implants": {
+            "title": "Dental Implants",
+            "description": "Permanent tooth replacement with titanium implants"
+        },
+        "whitening": {
+            "title": "Teeth Whitening",
+            "description": "Professional whitening for a brighter smile"
+        },
+        "orthodontics": {
+            "title": "Orthodontics",
+            "description": "Braces and aligners for perfect teeth alignment"
+        },
+        "veneers": {
+            "title": "Veneers",
+            "description": "Custom porcelain veneers for a perfect smile"
+        },
+        "checkup": {
+            "title": "Dental Checkup",
+            "description": "Comprehensive dental examination and cleaning"
+        },
+        "extraction": {
+            "title": "Tooth Extraction",
+            "description": "Safe and painless tooth removal"
+        }
+    },
+    "whyUs": {
+        "subtitle": "Why Laone Dental?",
+        "title": "Your Smile, Our Priority",
+        "description": "We combine advanced technology with compassionate care to deliver exceptional dental experiences.",
+        "features": {
+            "tech": {
+                "title": "Advanced Technology",
+                "description": "Latest dental equipment and techniques"
+            },
+            "experts": {
+                "title": "Expert Dentists",
+                "description": "Highly qualified and experienced team"
+            },
+            "care": {
+                "title": "Gentle Care",
+                "description": "Comfortable and pain-free treatments"
+            },
+            "pricing": {
+                "title": "Transparent Pricing",
+                "description": "No hidden fees, clear quotes"
+            }
+        }
+    },
+    "doctor": {
+        "subtitle": "Meet Our Experts",
+        "title": "Our Dental Team",
+        "description": "Click on any doctor to learn more about their expertise",
+        "bookWith": "Book with"
+    },
+    "cases": {
+        "subtitle": "Success Stories",
+        "title": "Real Transformations",
+        "description": "See the results we've achieved for our happy customers.",
+        "categories": {
+            "all": "All",
+            "orthodontics": "Orthodontics",
+            "implants": "Implants",
+            "whitening": "Whitening",
+            "veneers": "Veneers"
+        },
+        "items": {
+            "crowdedTeeth": {
+                "title": "Crowded Teeth Fix",
+                "description": "14-month metal braces treatment for severe crowding."
+            },
+            "gapClosure": {
+                "title": "Gap Closure",
+                "description": "Invisalign treatment to close front tooth gaps."
+            },
+            "overbiteCorrection": {
+                "title": "Overbite Correction",
+                "description": "24-month braces for severe overbite."
+            },
+            "singleImplant": {
+                "title": "Single Molar Implant",
+                "description": "Titanium implant with ceramic crown."
+            },
+            "fullArch": {
+                "title": "Full Arch Restoration",
+                "description": "All-on-4 complete smile restoration."
+            },
+            "multipleImplants": {
+                "title": "Multiple Implants",
+                "description": "3 implants for missing molars."
+            },
+            "laserWhitening": {
+                "title": "Laser Whitening",
+                "description": "8 shades whiter in one hour."
+            },
+            "stainRemoval": {
+                "title": "Stain Removal",
+                "description": "Professional cleaning for tobacco stains."
+            },
+            "zoomTreatment": {
+                "title": "Zoom Treatment",
+                "description": "Coffee stain removal with Zoom whitening."
+            },
+            "hollywoodSmile": {
+                "title": "Hollywood Smile",
+                "description": "8 porcelain veneers for perfect shape."
+            },
+            "smileMakeover": {
+                "title": "Smile Makeover",
+                "description": "Complete veneer transformation."
+            },
+            "celebritySmile": {
+                "title": "Celebrity Smile",
+                "description": "Premium porcelain veneers for red carpet ready smile."
+            }
+        }
+    },
+    "reviews": {
+        "subtitle": "Customer Reviews",
+        "title": "What Our Customers Say",
+        "description": "Real testimonials from our happy customers"
+    },
+    "contact": {
+        "title": "Ready for Us to Care for Your Smile?",
+        "subtitle": "Book today and get special discount for new customers. Free consultation, no charge.",
+        "call": "Call",
+        "whatsapp": "WhatsApp",
+        "facebook": "Facebook",
+        "tiktok": "TikTok"
+    },
+    "footer": {
+        "about": "Comprehensive dental clinic with modern technology and expert dental team, ready to care for your smile.",
+        "services": "Services",
+        "hours": "Opening Hours",
+        "everyday": "Open every day",
+        "location": "Location",
+        "copyright": "© 2024 Laone Dental Clinic. All Rights Reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Use"
+    }
+}

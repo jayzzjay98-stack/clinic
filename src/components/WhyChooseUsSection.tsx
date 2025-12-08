@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import {
     Cpu,
     BadgeCheck,
@@ -6,21 +9,20 @@ import {
 } from "lucide-react";
 
 export default function WhyChooseUsSection() {
+    const t = useTranslations('whyUs');
+
     const features = [
         {
             icon: Cpu,
-            title: "Modern Technology",
-            description: "Latest dental equipment including 3D X-ray, laser, and digital systems for accurate and fast treatment.",
+            titleKey: "tech",
         },
         {
             icon: BadgeCheck,
-            title: "Expert Dentists",
-            description: "Dental team trained at leading institutions with professional licenses and over 15 years of experience.",
+            titleKey: "experts",
         },
         {
             icon: ShieldCheck,
-            title: "Safe & Sterile",
-            description: "International standard sterilization. All instruments sterilized. 100% clean and safe.",
+            titleKey: "care",
         },
     ];
 
@@ -97,17 +99,15 @@ export default function WhyChooseUsSection() {
                     <div className="space-y-8 text-center lg:text-left">
                         <div>
                             <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                                Why Choose Us
+                                {t('subtitle')}
                             </span>
                             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6">
-                                We Care About{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
-                                    Every Detail
+                                    {t('title')}
                                 </span>
                             </h2>
                             <p className="text-base lg:text-lg text-white/80 max-w-lg mx-auto lg:mx-0">
-                                At Laone Dental, we believe everyone deserves the best dental care
-                                with excellent service at affordable prices.
+                                {t('description')}
                             </p>
                         </div>
 
@@ -120,10 +120,10 @@ export default function WhyChooseUsSection() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-bold text-white mb-1">
-                                            {feature.title}
+                                            {t(`features.${feature.titleKey}.title`)}
                                         </h3>
                                         <p className="text-white/80 text-sm leading-relaxed">
-                                            {feature.description}
+                                            {t(`features.${feature.titleKey}.description`)}
                                         </p>
                                     </div>
                                 </div>

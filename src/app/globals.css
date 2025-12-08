@@ -45,9 +45,16 @@ body {
   background: linear-gradient(135deg, #3d0d39 0%, #6b1a62 25%, #a02595 50%, #c94eb8 75%, #6b1a62 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), var(--font-noto-lao), system-ui, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* Lao language text styling */
+:lang(lo),
+[lang="lo"],
+.font-lao {
+  font-family: var(--font-noto-lao), 'Noto Sans Lao', sans-serif;
 }
 
 /* Smooth Scrolling & Prevent Horizontal Scroll */
@@ -103,4 +110,21 @@ html {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Slow bounce animation for cute tooth decorations */
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 4s ease-in-out infinite;
 }

@@ -1,6 +1,12 @@
+"use client";
+
+import Image from "next/image";
 import { Star } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export default function ReviewsSection() {
+    const t = useTranslations('reviews');
+
     const reviews = [
         {
             name: "Sarah M.",
@@ -25,17 +31,32 @@ export default function ReviewsSection() {
     return (
         <section id="reviews" className="py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#a02595]/10 via-transparent to-orange-400/10" />
+
+            {/* Cute tooth decoration - bottom left */}
+            <div className="absolute bottom-12 left-4 lg:left-16 hidden md:block opacity-80 animate-bounce-slow">
+                <Image
+                    src="/cute-teeth-small.png"
+                    alt=""
+                    width={130}
+                    height={75}
+                    className="object-contain"
+                    aria-hidden="true"
+                />
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                        Patient Reviews
+                        {t('subtitle')}
                     </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-                        What Our{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#a02595]">
-                            Patients Say
+                            {t('title')}
                         </span>
                     </h2>
+                    <p className="text-base text-white/80">
+                        {t('description')}
+                    </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">

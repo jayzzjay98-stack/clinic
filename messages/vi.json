@@ -1,0 +1,164 @@
+{
+    "nav": {
+        "services": "Dịch vụ",
+        "whyUs": "Tại sao chọn chúng tôi",
+        "doctor": "Bác sĩ",
+        "reviews": "Đánh giá",
+        "contact": "Liên hệ",
+        "bookNow": "Đặt lịch"
+    },
+    "hero": {
+        "badge": "Được hơn 10.000+ khách hàng tin tưởng",
+        "title1": "Mọi nụ cười",
+        "title2": "Tỏa sáng rạng ngời",
+        "title3": "Bắt đầu từ đây",
+        "subtitle": "Chăm sóc răng miệng toàn diện với công nghệ hiện đại bởi đội ngũ nha sĩ chuyên gia",
+        "bookFree": "Đặt miễn phí",
+        "callUs": "Gọi cho chúng tôi",
+        "reviews": "500+ đánh giá 4.9 điểm"
+    },
+    "services": {
+        "subtitle": "Chuyên môn của chúng tôi",
+        "title": "Dịch vụ nha khoa",
+        "description": "Chăm sóc răng cao cấp với nha sĩ đẳng cấp thế giới",
+        "bookNow": "Đặt lịch",
+        "implants": {
+            "title": "Cấy ghép răng",
+            "description": "Thay thế răng vĩnh viễn bằng implant titanium"
+        },
+        "whitening": {
+            "title": "Tẩy trắng răng",
+            "description": "Tẩy trắng chuyên nghiệp cho nụ cười rạng rỡ"
+        },
+        "orthodontics": {
+            "title": "Chỉnh nha",
+            "description": "Niềng răng và khay trong suốt để răng hoàn hảo"
+        },
+        "veneers": {
+            "title": "Mặt dán sứ",
+            "description": "Veneer sứ tùy chỉnh cho nụ cười hoàn hảo"
+        },
+        "checkup": {
+            "title": "Khám răng",
+            "description": "Khám răng toàn diện và làm sạch"
+        },
+        "extraction": {
+            "title": "Nhổ răng",
+            "description": "Nhổ răng an toàn và không đau"
+        }
+    },
+    "whyUs": {
+        "subtitle": "Tại sao chọn Laone?",
+        "title": "Nụ cười của bạn, Ưu tiên của chúng tôi",
+        "description": "Chúng tôi kết hợp công nghệ tiên tiến với sự chăm sóc chu đáo để mang đến trải nghiệm nha khoa tuyệt vời",
+        "features": {
+            "tech": {
+                "title": "Công nghệ tiên tiến",
+                "description": "Thiết bị và kỹ thuật nha khoa mới nhất"
+            },
+            "experts": {
+                "title": "Nha sĩ chuyên gia",
+                "description": "Đội ngũ có trình độ cao và kinh nghiệm"
+            },
+            "care": {
+                "title": "Chăm sóc nhẹ nhàng",
+                "description": "Điều trị thoải mái và không đau"
+            },
+            "pricing": {
+                "title": "Giá minh bạch",
+                "description": "Không phí ẩn, báo giá rõ ràng"
+            }
+        }
+    },
+    "doctor": {
+        "subtitle": "Gặp gỡ chuyên gia của chúng tôi",
+        "title": "Đội ngũ nha khoa",
+        "description": "Nhấp vào bác sĩ để xem chi tiết",
+        "bookWith": "Đặt lịch với"
+    },
+    "cases": {
+        "subtitle": "Câu chuyện thành công",
+        "title": "Sự thay đổi thực sự",
+        "description": "Xem kết quả chúng tôi đã đạt được cho khách hàng hạnh phúc",
+        "categories": {
+            "all": "Tất cả",
+            "orthodontics": "Chỉnh nha",
+            "implants": "Cấy ghép",
+            "whitening": "Tẩy trắng",
+            "veneers": "Mặt dán"
+        },
+        "items": {
+            "crowdedTeeth": {
+                "title": "Khắc phục răng chen chúc",
+                "description": "Điều trị niềng răng kim loại 14 tháng cho răng chen chúc nghiêm trọng"
+            },
+            "gapClosure": {
+                "title": "Đóng khe hở",
+                "description": "Điều trị Invisalign để đóng khe hở răng cửa"
+            },
+            "overbiteCorrection": {
+                "title": "Khắc phục răng hô",
+                "description": "Niềng răng 24 tháng cho răng hô nghiêm trọng"
+            },
+            "singleImplant": {
+                "title": "Cấy ghép răng hàm đơn",
+                "description": "Implant titanium với mão sứ"
+            },
+            "fullArch": {
+                "title": "Phục hồi toàn hàm",
+                "description": "All-on-4 phục hồi nụ cười hoàn chỉnh"
+            },
+            "multipleImplants": {
+                "title": "Cấy ghép nhiều răng",
+                "description": "3 implant cho răng hàm bị mất"
+            },
+            "laserWhitening": {
+                "title": "Tẩy trắng laser",
+                "description": "Trắng hơn 8 tông trong một giờ"
+            },
+            "stainRemoval": {
+                "title": "Loại bỏ vết ố",
+                "description": "Làm sạch chuyên nghiệp cho vết ố thuốc lá"
+            },
+            "zoomTreatment": {
+                "title": "Điều trị Zoom",
+                "description": "Loại bỏ vết ố cà phê với Zoom whitening"
+            },
+            "hollywoodSmile": {
+                "title": "Nụ cười Hollywood",
+                "description": "8 veneer sứ cho hình dáng hoàn hảo"
+            },
+            "smileMakeover": {
+                "title": "Thay đổi nụ cười",
+                "description": "Biến đổi hoàn toàn với veneer"
+            },
+            "celebritySmile": {
+                "title": "Nụ cười ngôi sao",
+                "description": "Veneer sứ cao cấp cho nụ cười rực rỡ"
+            }
+        }
+    },
+    "reviews": {
+        "subtitle": "Đánh giá từ khách hàng",
+        "title": "Khách hàng nói gì",
+        "description": "Đánh giá thực từ khách hàng hạnh phúc"
+    },
+    "contact": {
+        "title": "Sẵn sàng để chúng tôi chăm sóc nụ cười của bạn?",
+        "subtitle": "Đặt lịch hôm nay nhận ưu đãi đặc biệt cho khách hàng mới. Tư vấn miễn phí.",
+        "call": "Gọi",
+        "whatsapp": "WhatsApp",
+        "facebook": "Facebook",
+        "tiktok": "TikTok"
+    },
+    "footer": {
+        "about": "Phòng khám nha khoa toàn diện với công nghệ hiện đại và đội ngũ nha sĩ chuyên gia, sẵn sàng chăm sóc nụ cười của bạn",
+        "services": "Dịch vụ",
+        "hours": "Giờ mở cửa",
+        "everyday": "Mở cửa mỗi ngày",
+        "location": "Địa chỉ",
+        "copyright": "© 2024 Laone Dental Clinic. Bảo lưu mọi quyền.",
+        "privacy": "Chính sách bảo mật",
+        "terms": "Điều khoản sử dụng"
+    }
+}

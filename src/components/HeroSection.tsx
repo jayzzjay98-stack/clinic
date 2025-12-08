@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import {
     Calendar,
     ShieldCheck,
@@ -7,6 +10,8 @@ import {
 } from "lucide-react";
 
 export default function HeroSection() {
+    const t = useTranslations('hero');
+
     return (
         <section className="min-h-screen pt-24 lg:pt-20 relative overflow-hidden">
             {/* Decorative Background Orbs for Dimension */}
@@ -20,21 +25,19 @@ export default function HeroSection() {
                     <div className="space-y-6 lg:space-y-8 relative z-10 text-center lg:text-left order-2 lg:order-1">
                         <div className="inline-flex items-center gap-2 bg-[#FEF3E2] text-[#a02595] px-4 py-2 rounded-full text-sm font-medium">
                             <ShieldCheck className="w-4 h-4" />
-                            Trusted by over 10,000+ patients
+                            {t('badge')}
                         </div>
 
                         <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
-                            <span className="block">Every Smile</span>
+                            <span className="block">{t('title1')}</span>
                             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] to-[#FBB03B]">
-                                Shines Bright
+                                {t('title2')}
                             </span>
-                            <span className="block">Starts Here</span>
+                            <span className="block">{t('title3')}</span>
                         </h1>
 
                         <p className="text-base sm:text-lg lg:text-xl text-white/80 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                            Comprehensive dental care with modern technology
-                            <br />
-                            by our expert dental team
+                            {t('subtitle')}
                         </p>
 
                         {/* CTA Buttons */}
@@ -44,14 +47,14 @@ export default function HeroSection() {
                                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:shadow-xl hover:shadow-[#a02595]/30 transition-all transform hover:-translate-y-1"
                             >
                                 <Calendar className="w-5 h-5" />
-                                Book Free
+                                {t('bookFree')}
                             </a>
                             <a
                                 href="tel:+85620581555555"
                                 className="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/10 transition-all"
                             >
                                 <Phone className="w-5 h-5" />
-                                Call Us
+                                {t('callUs')}
                             </a>
                         </div>
 
@@ -60,7 +63,7 @@ export default function HeroSection() {
                             <div className="flex -space-x-2 sm:-space-x-3">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
                                     <Image
-                                        src="/happy-patient.png"
+                                        src="/happy-patient.jpg"
                                         alt="Happy dental patient smiling after treatment"
                                         width={48}
                                         height={48}
@@ -70,7 +73,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
                                     <Image
-                                        src="/dental-treatment.png"
+                                        src="/dental-treatment.jpg"
                                         alt="Patient receiving dental treatment"
                                         width={48}
                                         height={48}
@@ -80,7 +83,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
                                     <Image
-                                        src="/teeth-whitening.png"
+                                        src="/teeth-whitening.jpg"
                                         alt="Professional teeth whitening result"
                                         width={48}
                                         height={48}
@@ -95,7 +98,7 @@ export default function HeroSection() {
                                         <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
                                     ))}
                                 </div>
-                                <p className="text-white/80 text-xs sm:text-sm">500+ Reviews 4.9 Rating</p>
+                                <p className="text-white/80 text-xs sm:text-sm">{t('reviews')}</p>
                             </div>
                         </div>
                     </div>

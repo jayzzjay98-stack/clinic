@@ -1,0 +1,164 @@
+{
+    "nav": {
+        "services": "服务",
+        "whyUs": "为什么选择我们",
+        "doctor": "医生",
+        "reviews": "评价",
+        "contact": "联系",
+        "bookNow": "立即预约"
+    },
+    "hero": {
+        "badge": "获得10,000+顾客信赖",
+        "title1": "每一个微笑",
+        "title2": "都闪耀光芒",
+        "title3": "从这里开始",
+        "subtitle": "由专家牙医团队提供的现代技术全面牙科护理",
+        "bookFree": "免费预约",
+        "callUs": "致电我们",
+        "reviews": "500+评价 4.9分"
+    },
+    "services": {
+        "subtitle": "我们的专业",
+        "title": "牙科服务",
+        "description": "世界级牙医的高端牙科护理",
+        "bookNow": "立即预约",
+        "implants": {
+            "title": "种植牙",
+            "description": "钛合金种植体永久替换牙齿"
+        },
+        "whitening": {
+            "title": "牙齿美白",
+            "description": "专业美白让笑容更灿烂"
+        },
+        "orthodontics": {
+            "title": "正畸矫正",
+            "description": "牙套和隐形矫正器打造完美牙齿"
+        },
+        "veneers": {
+            "title": "贴面",
+            "description": "定制瓷贴面打造完美笑容"
+        },
+        "checkup": {
+            "title": "牙齿检查",
+            "description": "全面牙齿检查和清洁"
+        },
+        "extraction": {
+            "title": "拔牙",
+            "description": "安全无痛拔牙"
+        }
+    },
+    "whyUs": {
+        "subtitle": "为什么选择Laone?",
+        "title": "您的微笑，我们的首要任务",
+        "description": "我们将先进技术与贴心护理相结合，提供卓越的牙科体验",
+        "features": {
+            "tech": {
+                "title": "先进技术",
+                "description": "最新牙科设备和技术"
+            },
+            "experts": {
+                "title": "专家牙医",
+                "description": "高素质经验丰富的团队"
+            },
+            "care": {
+                "title": "温柔护理",
+                "description": "舒适无痛的治疗"
+            },
+            "pricing": {
+                "title": "透明定价",
+                "description": "无隐藏费用，报价清晰"
+            }
+        }
+    },
+    "doctor": {
+        "subtitle": "认识我们的专家",
+        "title": "我们的牙科团队",
+        "description": "点击医生查看详情",
+        "bookWith": "预约"
+    },
+    "cases": {
+        "subtitle": "成功案例",
+        "title": "真实蜕变",
+        "description": "查看我们为满意顾客取得的成果",
+        "categories": {
+            "all": "全部",
+            "orthodontics": "正畸",
+            "implants": "种植牙",
+            "whitening": "美白",
+            "veneers": "贴面"
+        },
+        "items": {
+            "crowdedTeeth": {
+                "title": "牙齿拥挤矫正",
+                "description": "14个月金属牙套治疗严重牙齿拥挤"
+            },
+            "gapClosure": {
+                "title": "缝隙闭合",
+                "description": "隐适美治疗闭合前牙缝隙"
+            },
+            "overbiteCorrection": {
+                "title": "深覆合矫正",
+                "description": "24个月牙套矫正严重深覆合"
+            },
+            "singleImplant": {
+                "title": "单颗磨牙种植",
+                "description": "钛合金种植体搭配陶瓷牙冠"
+            },
+            "fullArch": {
+                "title": "全口修复",
+                "description": "All-on-4全口微笑修复"
+            },
+            "multipleImplants": {
+                "title": "多颗种植",
+                "description": "3颗种植体修复缺失磨牙"
+            },
+            "laserWhitening": {
+                "title": "激光美白",
+                "description": "一小时内提亮8个色号"
+            },
+            "stainRemoval": {
+                "title": "去除色斑",
+                "description": "专业清洁去除烟渍"
+            },
+            "zoomTreatment": {
+                "title": "Zoom美白治疗",
+                "description": "Zoom美白去除咖啡渍"
+            },
+            "hollywoodSmile": {
+                "title": "好莱坞微笑",
+                "description": "8颗瓷贴面打造完美形态"
+            },
+            "smileMakeover": {
+                "title": "微笑改造",
+                "description": "全面贴面改造"
+            },
+            "celebritySmile": {
+                "title": "明星微笑",
+                "description": "高端瓷贴面打造红毯微笑"
+            }
+        }
+    },
+    "reviews": {
+        "subtitle": "顾客评价",
+        "title": "顾客怎么说",
+        "description": "来自满意顾客的真实评价"
+    },
+    "contact": {
+        "title": "准备好让我们照顾您的微笑了吗？",
+        "subtitle": "今天预约，新顾客享受特别优惠。免费咨询。",
+        "call": "电话",
+        "whatsapp": "WhatsApp",
+        "facebook": "Facebook",
+        "tiktok": "TikTok"
+    },
+    "footer": {
+        "about": "配备现代技术和专家牙医团队的综合牙科诊所，随时准备照顾您的微笑",
+        "services": "服务",
+        "hours": "营业时间",
+        "everyday": "每天营业",
+        "location": "地址",
+        "copyright": "© 2024 Laone牙科诊所 版权所有",
+        "privacy": "隐私政策",
+        "terms": "使用条款"
+    }
+}
