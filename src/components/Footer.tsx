@@ -16,11 +16,11 @@ export default function Footer() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="tel:+66123456789"
+                            href="tel:+85620581555555"
                             className="inline-flex items-center justify-center gap-2 bg-white text-[#a02595] px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:bg-white/90 transition-all"
                         >
                             <Phone className="w-5 h-5" />
-                            02-123-4567
+                            020 5815 5555
                         </a>
                         <a
                             href="https://line.me"
@@ -71,21 +71,17 @@ export default function Footer() {
 
                         {/* Working Hours */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6">Working Hours</h4>
-                            <ul className="space-y-3 text-white/70">
+                            <h4 className="text-lg font-bold mb-6">ເວລາເປີດບໍລິການ</h4>
+                            <ul className="space-y-2 text-white/70 text-sm">
                                 <li className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-white" />
-                                    <span>Mon - Fri: 09:00 - 19:00</span>
+                                    <Clock className="w-4 h-4 text-white flex-shrink-0" />
+                                    <span>ຈັນ - ອາທິດ: 08:30 - 12:30</span>
                                 </li>
-                                <li className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-white" />
-                                    <span>Sat: 09:00 - 17:00</span>
-                                </li>
-                                <li className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-white" />
-                                    <span>Sun: 10:00 - 16:00</span>
+                                <li className="flex items-center gap-2 ml-6">
+                                    <span>14:00 - 19:00</span>
                                 </li>
                             </ul>
+                            <p className="text-white/50 text-xs mt-2">ເປີດບໍລິການທຸກວັນ</p>
                         </div>
 
                         {/* Location */}
@@ -95,8 +91,8 @@ export default function Footer() {
                                 <div className="flex items-start gap-3 text-white/70">
                                     <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                                     <span>
-                                        123 Health Building, 5th Floor<br />
-                                        Main Street<br />
+                                        ບ້ານພະຂາວ, ເມືອງໄຊທານີ<br />
+                                        ນະຄອນຫຼວງວຽງຈັນ<br />
                                         Vientiane, Laos
                                     </span>
                                 </div>

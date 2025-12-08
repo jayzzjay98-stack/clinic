@@ -47,7 +47,7 @@ export default function HeroSection() {
                                 Book Free
                             </a>
                             <a
-                                href="tel:+66123456789"
+                                href="tel:+85620581555555"
                                 className="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/10 transition-all"
                             >
                                 <Phone className="w-5 h-5" />

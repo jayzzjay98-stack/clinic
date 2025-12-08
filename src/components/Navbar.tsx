@@ -55,11 +55,11 @@ export default function Navbar() {
                         {/* CTA Button */}
                         <div className="flex items-center gap-4">
                             <a
-                                href="tel:+66123456789"
+                                href="tel:+85620581555555"
                                 className="hidden md:flex items-center gap-2 text-white font-semibold"
                             >
                                 <Phone className="w-4 h-4" />
-                                02-123-4567
+                                020 5815 5555
                             </a>
                             <a
                                 href="#contact"
