@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 /* ============================================
    FONT CONFIGURATION
@@ -88,22 +89,30 @@ export default function RootLayout({
           if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
           }
-          // Scroll to top immediately
-          window.scrollTo(0, 0);
-          document.documentElement.scrollTop = 0;
-          document.body.scrollTop = 0;
-          // Also scroll on DOMContentLoaded
-          document.addEventListener('DOMContentLoaded', function() {
+          // Safe scroll to top function
+          function safeScrollToTop() {
             window.scrollTo(0, 0);
-          });
+            if (document.documentElement) {
+              document.documentElement.scrollTop = 0;
+            }
+            if (document.body) {
+              document.body.scrollTop = 0;
+            }
+          }
+          // Try immediately (may not work if body not ready)
+          try { safeScrollToTop(); } catch(e) {}
+          // Also scroll on DOMContentLoaded
+          document.addEventListener('DOMContentLoaded', safeScrollToTop);
           // And on load
           window.addEventListener('load', function() {
-            setTimeout(function() { window.scrollTo(0, 0); }, 0);
+            setTimeout(safeScrollToTop, 0);
           });
         `}} />
       </head>
       <body className={`${plusJakarta.variable} font-sans antialiased`}>
-        {children}
+        <SmoothScrolling>
+          {children}
+        </SmoothScrolling>
       </body>
     </html>
   );
