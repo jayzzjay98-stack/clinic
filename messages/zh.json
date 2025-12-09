@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "我们的专业",
-        "title": "Laone Dental Clinic 全方位牙科服务",
+        "title": "全方位牙科服务\nLaone Dental Clinic",
         "description": "世界级牙医的高端牙科护理",
         "bookNow": "立即预约",
         "implants": {
@@ -139,7 +139,7 @@
         }
     },
     "reviews": {
-        "subtitle": "顾客评价",
+        "subtitle": "来自我们客户的评价",
         "title": "顾客怎么说",
         "description": "来自满意顾客的真实评价"
     },

@@ -13,17 +13,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 
-// Hook to detect mobile
-function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-    return isMobile;
-}
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 import { Doctor } from "@/types";
 import { doctors } from "@/data/doctors";

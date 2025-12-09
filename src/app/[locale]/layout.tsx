@@ -102,7 +102,7 @@ export default async function LocaleLayout({
     };
 
     return (
-        <html lang={langMap[locale] || locale} className="scroll-smooth">
+        <html lang={langMap[locale] || locale} className="scroll-smooth" data-scroll-behavior="smooth">
             <head>
                 <link rel="canonical" href="https://laodev.online" />
                 <script dangerouslySetInnerHTML={{

@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "Our Expertise",
-        "title": "Complete Dental Services at Laone Dental Clinic",
+        "title": "Complete Dental Services at\nLaone Dental Clinic",
         "description": "Premium dental care with world-class dentists and modern facilities",
         "bookNow": "Book Now",
         "implants": {
@@ -139,7 +139,7 @@
         }
     },
     "reviews": {
-        "subtitle": "Customer Reviews",
+        "subtitle": "Reviews from our customers",
         "title": "What Our Customers Say",
         "description": "Real testimonials from our happy customers"
     },

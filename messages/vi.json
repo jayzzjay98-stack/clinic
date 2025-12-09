@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "Chuyên môn của chúng tôi",
-        "title": "Dịch vụ nha khoa toàn diện tại Laone Dental Clinic",
+        "title": "Dịch vụ nha khoa toàn diện tại\nLaone Dental Clinic",
         "description": "Chăm sóc răng cao cấp với nha sĩ đẳng cấp thế giới",
         "bookNow": "Đặt lịch",
         "implants": {
@@ -139,7 +139,7 @@
         }
     },
     "reviews": {
-        "subtitle": "Đánh giá từ khách hàng",
+        "subtitle": "Đánh giá từ khách hàng của chúng tôi",
         "title": "Khách hàng nói gì",
         "description": "Đánh giá thực từ khách hàng hạnh phúc"
     },
