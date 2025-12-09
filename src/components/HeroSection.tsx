@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from "framer-motion";
 import {
     Calendar,
@@ -11,9 +11,22 @@ import {
     Sparkles
 } from "lucide-react";
 import SplitText from "@/components/ui/SplitText";
+import { useFontConfig } from "@/hooks/useFontConfig";
 
 export default function HeroSection() {
     const t = useTranslations('hero');
+    const locale = useLocale();
+    const fonts = useFontConfig();
+
+    // Margin config per language (mobile only) - kept separate as it's layout-specific
+    const marginConfig: Record<string, string> = {
+        lo: 'ml-4',
+        th: 'ml-8',
+        en: 'ml-10',
+        vi: 'ml-4',
+        zh: 'ml-4',
+    };
+    const title1Margin = marginConfig[locale] || '';
 
     // Animation Variants
     const containerVariants = {
@@ -60,30 +73,31 @@ export default function HeroSection() {
                     >
                         {/* Text Content - No Frame */}
                         <div className="relative p-8 lg:p-12">
-                            <div className="space-y-20 text-center">
-                                {/* Title with Mascot on left side */}
-                                <div className="relative flex items-center justify-center">
-                                    {/* Mascot - Absolute positioned on left */}
-                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 pr-4">
-                                        <Image
-                                            src="/hero-mascot.webp"
-                                            alt="Dental Mascot"
-                                            width={100}
-                                            height={100}
-                                            className="animate-slow-bounce drop-shadow-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
-                                        />
-                                    </div>
+                            {/* Mascot - Absolute positioned, independent of text layout */}
+                            <div className="absolute left-0 top-8 -translate-x-4 lg:-translate-x-8 z-10">
+                                <Image
+                                    src="/hero-mascot.webp"
+                                    alt="Dental Mascot"
+                                    width={100}
+                                    height={100}
+                                    className="animate-slow-bounce drop-shadow-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                                />
+                            </div>
+
+                            <div className="space-y-20 text-center -ml-8 lg:ml-0">
+                                {/* Title */}
+                                <div className="relative">
                                     <motion.h1
                                         variants={itemVariants}
-                                        className="text-sm sm:text-lg lg:text-2xl font-extrabold text-white leading-[1.4] tracking-tight text-center"
+                                        className={`${fonts.hero.title1} lg:${fonts.hero.title1} font-extrabold text-white leading-[1.4] tracking-tight text-center`}
                                     >
-                                        <span className="py-1 drop-shadow-lg whitespace-nowrap">{t('title1')}</span>
+                                        <span className={`inline-block py-1 drop-shadow-lg whitespace-nowrap ${title1Margin} lg:ml-0`}>{t('title1')}</span>
                                         {t('title2') && <span className="py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg"> {t('title2')}</span>}
                                         <div className="block py-1 mt-12">
                                             <SplitText
                                                 text={t('title3')}
                                                 tag="span"
-                                                className="text-2xl sm:text-4xl lg:text-5xl text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap font-[family-name:var(--font-source-sans)]"
+                                                className={`${fonts.hero.title3} text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap font-[family-name:var(--font-oleo-script)]`}
                                                 splitType="chars"
                                                 delay={50}
                                                 duration={0.5}
@@ -98,7 +112,7 @@ export default function HeroSection() {
 
                                 <motion.p
                                     variants={itemVariants}
-                                    className="text-base sm:text-lg text-white/90 max-w-md mx-auto leading-relaxed font-medium whitespace-pre-line"
+                                    className="text-base sm:text-lg text-white/90 max-w-md lg:max-w-2xl mx-auto leading-relaxed font-medium whitespace-pre-line"
                                 >
                                     {t('subtitle')}
                                 </motion.p>

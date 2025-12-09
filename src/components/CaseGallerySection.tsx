@@ -7,6 +7,7 @@ import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { useFontConfig } from "@/hooks/useFontConfig";
 import CaseCard from "@/components/cards/CaseCard";
 import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 
@@ -30,6 +31,7 @@ export default function CaseGallerySection() {
     const [activeCategory, setActiveCategory] = useState("All");
     const t = useTranslations('cases');
     const isMobile = useIsMobile();
+    const fonts = useFontConfig();
     const scrollRef = useRef<HTMLElement>(null);
 
     // Filter cases based on active category
@@ -51,7 +53,7 @@ export default function CaseGallerySection() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 whitespace-pre-line">
+                    <h2 className={`${fonts.caseGallery.title} sm:text-4xl lg:text-5xl font-bold text-white mb-6 whitespace-pre-line`}>
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>

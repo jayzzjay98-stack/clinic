@@ -27,10 +27,10 @@ export default function DoctorCard({ doctor, onClick, variant = "desktop" }: Doc
                 </div>
                 {/* Name */}
                 <div className="text-center">
-                    <p className="text-white font-semibold text-sm">
+                    <p className="text-white font-semibold text-sm font-latin">
                         {doctor.name.replace("Dr. ", "")}
                     </p>
-                    <p className="text-white/60 text-xs mt-1">
+                    <p className="text-white/60 text-xs mt-1 font-latin">
                         {doctor.specialty}
                     </p>
                 </div>
@@ -58,10 +58,10 @@ export default function DoctorCard({ doctor, onClick, variant = "desktop" }: Doc
             </div>
             {/* Name */}
             <div className="text-center">
-                <p className="text-white font-semibold text-base group-hover:text-[#F7931E] transition-colors duration-300">
+                <p className="text-white font-semibold text-base group-hover:text-[#F7931E] transition-colors duration-300 font-latin">
                     {doctor.name.replace("Dr. ", "")}
                 </p>
-                <p className="text-white/60 text-sm mt-1">
+                <p className="text-white/60 text-sm mt-1 font-latin">
                     {doctor.specialty}
                 </p>
             </div>

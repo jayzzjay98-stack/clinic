@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Noto_Sans_Lao, Noto_Sans_Thai, Noto_Sans_SC, Source_Sans_3 } from "next/font/google";
+import { Plus_Jakarta_Sans, Noto_Sans_Thai, Noto_Sans_SC, Source_Sans_3, Oleo_Script } from "next/font/google";
+import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -17,12 +18,12 @@ const plusJakarta = Plus_Jakarta_Sans({
     display: "swap",
 });
 
-const notoSansLao = Noto_Sans_Lao({
-    variable: "--font-noto-lao",
-    subsets: ["lao"],
-    weight: ["400", "500", "600", "700"],
-    display: "swap",
+const komLao = localFont({
+    src: '../../../public/fonts/Kom-Regular.ttf',
+    variable: '--font-kom-lao',
+    display: 'swap',
 });
+
 
 const notoSansThai = Noto_Sans_Thai({
     variable: "--font-noto-thai",
@@ -42,6 +43,13 @@ const sourceSans = Source_Sans_3({
     variable: "--font-source-sans",
     subsets: ["latin"],
     weight: ["400", "600", "700", "900"],
+    display: "swap",
+});
+
+const oleoScript = Oleo_Script({
+    variable: "--font-oleo-script",
+    subsets: ["latin"],
+    weight: ["400", "700"],
     display: "swap",
 });
 
@@ -124,7 +132,7 @@ export default async function LocaleLayout({
           window.addEventListener('load', function() { setTimeout(scrollToTop, 0); });
         `}} />
             </head>
-            <body className={`${plusJakarta.variable} ${notoSansLao.variable} ${notoSansThai.variable} ${notoSansSC.variable} ${sourceSans.variable} font-sans antialiased`}>
+            <body className={`${plusJakarta.variable} ${komLao.variable} ${notoSansThai.variable} ${notoSansSC.variable} ${sourceSans.variable} ${oleoScript.variable} font-sans antialiased`}>
                 <NextIntlClientProvider messages={messages}>
                     <SmoothScrolling>
                         {children}

@@ -42,10 +42,17 @@
 
 /* Base Body Styles */
 body {
-  background: linear-gradient(135deg, #3d0d39 0%, #6b1a62 25%, #a02595 50%, #c94eb8 75%, #6b1a62 100%);
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 30%, rgba(160, 37, 149, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201, 78, 184, 0.5) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 50% at 70% 70%, rgba(247, 147, 30, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 30% 80%, rgba(160, 37, 149, 0.5) 0%, transparent 45%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(107, 26, 98, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 10% 60%, rgba(247, 147, 30, 0.3) 0%, transparent 50%),
+    linear-gradient(135deg, #3d0d39 0%, #6b1a62 50%, #4a0f4a 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta), var(--font-noto-lao), system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), var(--font-kom-lao), system-ui, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -54,7 +61,12 @@ body {
 :lang(lo),
 [lang="lo"],
 .font-lao {
-  font-family: var(--font-noto-lao), 'Noto Sans Lao', sans-serif;
+  font-family: var(--font-kom-lao), 'Kom', sans-serif;
+}
+
+/* Override Lao font with Latin font (Plus Jakarta Sans) */
+.font-latin {
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }
 
 /* Smooth Scrolling & Prevent Horizontal Scroll */

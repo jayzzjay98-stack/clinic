@@ -3,17 +3,20 @@
 import Image from "next/image";
 import { Phone, Clock, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import { useFontConfig } from "@/hooks/useFontConfig";
 
 export default function Footer() {
     const t = useTranslations('contact');
     const tf = useTranslations('footer');
+    const ts = useTranslations('services');
+    const fonts = useFontConfig();
 
     return (
-        <footer id="footer" className="bg-[#1E293B] text-white">
+        <footer id="footer" className="bg-transparent text-white">
             {/* Contact CTA */}
-            <section id="contact" className="py-10 md:py-16 bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+            <section id="contact" className="py-10 md:py-16 bg-white/5 backdrop-blur-sm border-y border-white/10">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                    <h2 className={`${fonts.footer.title} sm:text-4xl font-bold mb-4`}>
                         {t('title')}
                     </h2>
                     <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
@@ -67,7 +70,7 @@ export default function Footer() {
                         <div className="lg:col-span-1">
                             <a href="#" className="block mb-6">
                                 <Image
-                                    src="/laone-logo-transparent.webp"
+                                    src="/laone-dental-logo.png"
                                     alt="Laone Dental Clinic Logo - Expert Dental Care in Vientiane"
                                     width={280}
                                     height={140}
@@ -76,43 +79,40 @@ export default function Footer() {
                                 />
                             </a>
                             <p className="text-white/70 leading-relaxed">
-                                Comprehensive dental clinic with modern technology
-                                and expert dental team, ready to care for your smile.
+                                {tf('about')}
                             </p>
                         </div>
 
                         {/* Services */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6">Services</h4>
+                            <h4 className="text-lg font-bold mb-6">{tf('services')}</h4>
                             <ul className="space-y-3">
-                                {["Dental Implants", "Teeth Whitening", "Orthodontics", "Dental Checkup", "Fillings", "Extractions"].map((link) => (
-                                    <li key={link}>
-                                        <a href="#services" className="text-white/70 hover:text-white transition-colors">
-                                            {link}
-                                        </a>
-                                    </li>
-                                ))}
+                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('implants.title')}</a></li>
+                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('whitening.title')}</a></li>
+                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('orthodontics.title')}</a></li>
+                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('checkup.title')}</a></li>
+                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('extraction.title')}</a></li>
                             </ul>
                         </div>
 
                         {/* Working Hours */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6">ເວລາເປີດບໍລິການ</h4>
+                            <h4 className="text-lg font-bold mb-6">{tf('hours')}</h4>
                             <ul className="space-y-2 text-white/70 text-sm">
                                 <li className="flex items-center gap-2">
                                     <Clock className="w-4 h-4 text-white flex-shrink-0" />
-                                    <span>ຈັນ - ອາທິດ: 08:30 - 12:30</span>
+                                    <span>08:30 - 12:30</span>
                                 </li>
                                 <li className="flex items-center gap-2 ml-6">
                                     <span>14:00 - 19:00</span>
                                 </li>
                             </ul>
-                            <p className="text-white/50 text-xs mt-2">ເປີດບໍລິການທຸກວັນ</p>
+                            <p className="text-white/50 text-xs mt-2">{tf('everyday')}</p>
                         </div>
 
                         {/* Location */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6">Location</h4>
+                            <h4 className="text-lg font-bold mb-6">{tf('location')}</h4>
                             <div className="space-y-4">
                                 <div className="flex items-start gap-3 text-white/70">
                                     <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
@@ -139,14 +139,14 @@ export default function Footer() {
                     {/* Bottom Bar */}
                     <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
                         <p className="text-white/70 text-sm">
-                            © 2024 Laone Dental Clinic. All Rights Reserved.
+                            {tf('copyright')}
                         </p>
                         <div className="flex gap-6">
                             <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
-                                Privacy Policy
+                                {tf('privacy')}
                             </a>
                             <a href="#" className="text-white/70 hover:text-white text-sm transition-colors">
-                                Terms of Use
+                                {tf('terms')}
                             </a>
                         </div>
                     </div>

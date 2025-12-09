@@ -8,6 +8,7 @@ import { FreeMode, Navigation, Pagination } from "swiper/modules";
 import { ChevronLeft, ChevronRight, Star, Calendar } from "lucide-react";
 
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { useFontConfig } from "@/hooks/useFontConfig";
 import DoctorCard from "@/components/cards/DoctorCard";
 import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 
@@ -22,6 +23,7 @@ import { doctors } from "@/data/doctors";
 
 export default function DoctorSection() {
     const isMobile = useIsMobile();
+    const fonts = useFontConfig();
     const t = useTranslations('doctor');
     const scrollRef = useRef<HTMLDivElement>(null);
     const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null);
@@ -49,7 +51,7 @@ export default function DoctorSection() {
                     <span className="text-[#F7931E] font-semibold tracking-wider uppercase text-base md:text-lg mb-3 block">
                         {t('subtitle')}
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    <h2 className={`${fonts.doctor.title} md:text-5xl font-bold text-white mb-6`}>
                         {t('title')}
                     </h2>
                     {t('description') && (
@@ -156,13 +158,13 @@ export default function DoctorSection() {
                             {/* Right: Content */}
                             <div className="flex-1 min-w-0">
                                 {/* Specialty Tag */}
-                                <span className="inline-block text-[#F7931E] text-sm font-semibold mb-2">
+                                <span className="inline-block text-[#F7931E] text-sm font-semibold mb-2 font-latin">
                                     {selectedDoctor.specialty}
                                 </span>
 
                                 {/* Name & Title */}
-                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">{selectedDoctor.name}</h3>
-                                <p className="text-white/60 mb-5">{selectedDoctor.title}</p>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 font-latin">{selectedDoctor.name}</h3>
+                                <p className="text-white/60 mb-5 font-latin">{selectedDoctor.title}</p>
 
                                 {/* Info Rows */}
                                 <div className="space-y-3 mb-5">
@@ -173,8 +175,8 @@ export default function DoctorSection() {
                                             </svg>
                                         </div>
                                         <div>
-                                            <p className="text-white/50 text-xs uppercase tracking-wider">Education</p>
-                                            <p className="text-white text-sm">{selectedDoctor.education}</p>
+                                            <p className="text-white/50 text-xs uppercase tracking-wider font-latin">Education</p>
+                                            <p className="text-white text-sm font-latin">{selectedDoctor.education}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
@@ -182,8 +184,8 @@ export default function DoctorSection() {
                                             <Star className="w-4 h-4 text-[#F7931E]" />
                                         </div>
                                         <div>
-                                            <p className="text-white/50 text-xs uppercase tracking-wider">Specialty</p>
-                                            <p className="text-white text-sm">{selectedDoctor.specialty}</p>
+                                            <p className="text-white/50 text-xs uppercase tracking-wider font-latin">Specialty</p>
+                                            <p className="text-white text-sm font-latin">{selectedDoctor.specialty}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-3">
@@ -191,21 +193,21 @@ export default function DoctorSection() {
                                             <Calendar className="w-4 h-4 text-[#F7931E]" />
                                         </div>
                                         <div>
-                                            <p className="text-white/50 text-xs uppercase tracking-wider">Experience</p>
-                                            <p className="text-white text-sm">{selectedDoctor.experience}</p>
+                                            <p className="text-white/50 text-xs uppercase tracking-wider font-latin">Experience</p>
+                                            <p className="text-white text-sm font-latin">{selectedDoctor.experience}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Bio */}
-                                <p className="text-white/70 text-sm leading-relaxed mb-5">
+                                <p className="text-white/70 text-sm leading-relaxed mb-5 font-latin">
                                     {selectedDoctor.bio}
                                 </p>
 
                                 {/* Credentials */}
                                 <div className="flex flex-wrap gap-2 mb-6">
                                     {selectedDoctor.credentials.map((cred, idx) => (
-                                        <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-full text-xs">
+                                        <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-full text-xs font-latin">
                                             <svg className="w-3.5 h-3.5 text-[#F7931E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                             </svg>
@@ -215,7 +217,7 @@ export default function DoctorSection() {
                                 </div>
 
                                 {/* Book Button */}
-                                <button className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#ff6b35] text-white py-3 px-8 rounded-xl font-semibold shadow-lg shadow-[#F7931E]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+                                <button className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#ff6b35] text-white py-3 px-8 rounded-xl font-semibold shadow-lg shadow-[#F7931E]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 font-latin">
                                     <Calendar className="w-5 h-5" />
                                     {t('bookWith')} {selectedDoctor.name.split(' ')[0]}
                                 </button>

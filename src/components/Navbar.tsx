@@ -50,13 +50,13 @@ export default function Navbar() {
                     ${isMobileMenuOpen ? "hidden" : ""}
                     ${!isNavbarVisible && !isMobileMenuOpen ? "-translate-y-[150%]" : "translate-y-0"}`}
             >
-                <div className="px-6 lg:px-8">
+                <div className="px-2 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo - Fixed dimensions to prevent layout shift */}
-                        <a href="#" className="flex items-center mt-9">
-                            <div className="w-[200px] h-20 lg:w-[250px] lg:h-24 relative flex-shrink-0">
+                        <a href="#" className="flex items-center -ml-6 lg:-ml-12 lg:-mt-3">
+                            <div className="w-[200px] h-20 lg:w-[500px] lg:h-[100px] relative flex-shrink-0">
                                 <Image
-                                    src="/laone-logo-transparent.webp"
+                                    src="/laone-dental-logo.png"
                                     alt="Laone Dental"
                                     fill
                                     sizes="180px"

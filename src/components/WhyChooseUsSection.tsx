@@ -7,9 +7,11 @@ import {
     BadgeCheck,
     ShieldCheck,
 } from "lucide-react";
+import { useFontConfig } from "@/hooks/useFontConfig";
 
 export default function WhyChooseUsSection() {
     const t = useTranslations('whyUs');
+    const fonts = useFontConfig();
 
     const features = [
         {
@@ -98,7 +100,7 @@ export default function WhyChooseUsSection() {
                     {/* Right Column - Content */}
                     <div className="space-y-6 text-center lg:text-left lg:-mt-8">
                         <div>
-                            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight">
+                            <h2 className={`${fonts.whyUs.title} sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight`}>
                                 <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                                     {t('title')}
                                 </span>
@@ -113,10 +115,10 @@ export default function WhyChooseUsSection() {
                                         <feature.icon className="w-7 h-7 text-white" />
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white mb-1">
+                                        <h3 className={`${fonts.whyUs.cardTitle} font-bold text-white mb-1`}>
                                             {t(`features.${feature.titleKey}.title`)}
                                         </h3>
-                                        <p className="text-white/80 text-sm leading-relaxed">
+                                        <p className={`text-white/80 ${fonts.whyUs.cardDescription} leading-relaxed`}>
                                             {t(`features.${feature.titleKey}.description`)}
                                         </p>
                                     </div>

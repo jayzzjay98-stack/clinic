@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import { useFontConfig } from "@/hooks/useFontConfig";
 import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper/modules';
@@ -15,6 +16,7 @@ import 'swiper/css/navigation';
 export default function ReviewsSection() {
     const t = useTranslations('reviews');
     const isMobile = useIsMobile();
+    const fonts = useFontConfig();
     const scrollRef = useRef<HTMLElement>(null);
 
     // 8 review images from Laone Dental Clinic
@@ -35,7 +37,7 @@ export default function ReviewsSection() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-6 md:mb-12">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className={`${fonts.reviews.title} sm:text-4xl lg:text-5xl font-bold text-white mb-6`}>
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
