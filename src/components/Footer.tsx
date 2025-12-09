@@ -67,11 +67,11 @@ export default function Footer() {
                         <div className="lg:col-span-1">
                             <a href="#" className="block mb-6">
                                 <Image
-                                    src="/laone-logo-v2.png"
+                                    src="/laone-logo-transparent.png"
                                     alt="Laone Dental Clinic Logo - Expert Dental Care in Vientiane"
-                                    width={200}
-                                    height={100}
-                                    className="h-16 w-auto object-contain"
+                                    width={280}
+                                    height={140}
+                                    className="h-28 w-auto object-contain"
                                     loading="lazy"
                                 />
                             </a>

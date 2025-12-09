@@ -33,7 +33,7 @@ export default function Navbar() {
                         <a href="#" className="flex items-center mt-9">
                             <div className="w-[200px] h-20 lg:w-[250px] lg:h-24 relative flex-shrink-0">
                                 <Image
-                                    src="/laone-logo-v2.png"
+                                    src="/laone-logo-transparent.png"
                                     alt="Laone Dental"
                                     fill
                                     sizes="180px"
