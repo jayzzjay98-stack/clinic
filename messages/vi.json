@@ -8,10 +8,10 @@
         "bookNow": "Đặt lịch"
     },
     "hero": {
-        "badge": "Được hơn 10.000+ khách hàng tin tưởng",
-        "title1": "Mọi nụ cười",
-        "title2": "Tỏa sáng rạng ngời",
-        "title3": "Bắt đầu từ đây",
+        "badge": "Được 1000+ khách hàng tin tưởng",
+        "title1": "Cười tự tin",
+        "title2": "Bắt đầu tại",
+        "title3": "Laone Dental Clinic",
         "subtitle": "Chăm sóc răng miệng toàn diện với công nghệ hiện đại bởi đội ngũ nha sĩ chuyên gia",
         "bookFree": "Đặt miễn phí",
         "callUs": "Gọi cho chúng tôi",
@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "Chuyên môn của chúng tôi",
-        "title": "Dịch vụ nha khoa",
+        "title": "Dịch vụ nha khoa toàn diện tại Laone Dental Clinic",
         "description": "Chăm sóc răng cao cấp với nha sĩ đẳng cấp thế giới",
         "bookNow": "Đặt lịch",
         "implants": {
@@ -61,8 +61,8 @@
                 "description": "Đội ngũ có trình độ cao và kinh nghiệm"
             },
             "care": {
-                "title": "Chăm sóc nhẹ nhàng",
-                "description": "Điều trị thoải mái và không đau"
+                "title": "Chất lượng cao cấp",
+                "description": "Dịch vụ nha khoa tốt nhất cho bạn"
             },
             "pricing": {
                 "title": "Giá minh bạch",
@@ -78,8 +78,8 @@
     },
     "cases": {
         "subtitle": "Câu chuyện thành công",
-        "title": "Sự thay đổi thực sự",
-        "description": "Xem kết quả chúng tôi đã đạt được cho khách hàng hạnh phúc",
+        "title": "Đánh giá trước & sau",
+        "description": "Đảm bảo sự hài lòng của khách hàng",
         "categories": {
             "all": "Tất cả",
             "orthodontics": "Chỉnh nha",

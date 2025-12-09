@@ -34,26 +34,10 @@ export default function ServicesSection() {
         <section id="services" className="py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
 
-            {/* Cute tooth decoration - top right */}
-            <div className="absolute top-8 right-4 lg:right-12 hidden md:block opacity-80 animate-bounce-slow">
-                <Image
-                    src="/cute-teeth-small.png"
-                    alt=""
-                    width={150}
-                    height={85}
-                    className="object-contain"
-                    style={{ width: 'auto', height: 'auto' }}
-                    aria-hidden="true"
-                />
-            </div>
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                        {t('subtitle')}
-                    </span>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                    <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
@@ -63,9 +47,16 @@ export default function ServicesSection() {
                     </p>
                 </div>
 
-                {/* Services Carousel */}
+                {/* Services Carousel - Centered with Scroll */}
                 <div className="relative">
-                    <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                    <div
+                        className="flex gap-6 overflow-x-auto pb-6 px-4 justify-start lg:justify-center scrollbar-hide"
+                        style={{
+                            scrollbarWidth: 'none',
+                            msOverflowStyle: 'none',
+                            WebkitOverflowScrolling: 'touch'
+                        }}
+                    >
                         {services.map((service, index) => (
                             <div
                                 key={index}

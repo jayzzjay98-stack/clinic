@@ -8,10 +8,10 @@
         "bookNow": "立即预约"
     },
     "hero": {
-        "badge": "获得10,000+顾客信赖",
-        "title1": "每一个微笑",
-        "title2": "都闪耀光芒",
-        "title3": "从这里开始",
+        "badge": "获得1000+顾客信赖",
+        "title1": "自信微笑",
+        "title2": "从这里开始",
+        "title3": "Laone Dental Clinic",
         "subtitle": "由专家牙医团队提供的现代技术全面牙科护理",
         "bookFree": "免费预约",
         "callUs": "致电我们",
@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "我们的专业",
-        "title": "牙科服务",
+        "title": "Laone Dental Clinic 全方位牙科服务",
         "description": "世界级牙医的高端牙科护理",
         "bookNow": "立即预约",
         "implants": {
@@ -61,8 +61,8 @@
                 "description": "高素质经验丰富的团队"
             },
             "care": {
-                "title": "温柔护理",
-                "description": "舒适无痛的治疗"
+                "title": "高端品质",
+                "description": "为您提供最优质的牙科服务"
             },
             "pricing": {
                 "title": "透明定价",
@@ -78,8 +78,8 @@
     },
     "cases": {
         "subtitle": "成功案例",
-        "title": "真实蜕变",
-        "description": "查看我们为满意顾客取得的成果",
+        "title": "前后对比评价",
+        "description": "保证客户满意",
         "categories": {
             "all": "全部",
             "orthodontics": "正畸",

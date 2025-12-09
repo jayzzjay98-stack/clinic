@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import CaseCard from "@/components/cards/CaseCard";
 
 // Import Swiper styles
 import "swiper/css";
@@ -33,28 +34,7 @@ const categoryKeys = [
     { key: "veneers", internal: "Veneers" }
 ];
 
-// Case studies data with translation keys
-const cases = [
-    // ORTHODONTICS - จัดฟัน (รูปเหล็กจัดฟัน)
-    { id: 1, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "crowdedTeeth", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
-    { id: 2, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "gapClosure", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
-    { id: 3, category: "Orthodontics", categoryKey: "orthodontics", titleKey: "overbiteCorrection", beforeImage: "/cases/ortho_before.png", afterImage: "/cases/ortho_after.png" },
-
-    // IMPLANTS - รากฟันเทียม (รูปรากเทียม)
-    { id: 4, category: "Implants", categoryKey: "implants", titleKey: "singleImplant", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
-    { id: 5, category: "Implants", categoryKey: "implants", titleKey: "fullArch", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
-    { id: 6, category: "Implants", categoryKey: "implants", titleKey: "multipleImplants", beforeImage: "/cases/implant_before.png", afterImage: "/cases/implant_after.png" },
-
-    // WHITENING - ฟอกสีฟัน (รูปฟอกฟัน)
-    { id: 7, category: "Whitening", categoryKey: "whitening", titleKey: "laserWhitening", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
-    { id: 8, category: "Whitening", categoryKey: "whitening", titleKey: "stainRemoval", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
-    { id: 9, category: "Whitening", categoryKey: "whitening", titleKey: "zoomTreatment", beforeImage: "/cases/whitening_before.png", afterImage: "/cases/whitening_after.png" },
-
-    // VENEERS - วีเนียร์ (รูปวีเนียร์)
-    { id: 10, category: "Veneers", categoryKey: "veneers", titleKey: "hollywoodSmile", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
-    { id: 11, category: "Veneers", categoryKey: "veneers", titleKey: "smileMakeover", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
-    { id: 12, category: "Veneers", categoryKey: "veneers", titleKey: "celebritySmile", beforeImage: "/cases/veneers_before.png", afterImage: "/cases/veneers_after.png" },
-];
+import { cases } from "@/data/cases";
 
 export default function CaseGallerySection() {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -75,25 +55,11 @@ export default function CaseGallerySection() {
             {/* Background - pointer-events-none prevents blocking clicks */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#a02595]/10 via-transparent to-orange-500/10 pointer-events-none" />
 
-            {/* Cute tooth decoration - left side */}
-            <div className="absolute top-20 left-4 lg:left-8 hidden lg:block opacity-80 animate-bounce-slow">
-                <Image
-                    src="/cute-teeth-small.png"
-                    alt=""
-                    width={140}
-                    height={80}
-                    className="object-contain"
-                    style={{ width: 'auto', height: 'auto' }}
-                    aria-hidden="true"
-                />
-            </div>
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-10">
-                    <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                        {t('subtitle')}
-                    </span>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
@@ -153,42 +119,9 @@ export default function CaseGallerySection() {
                             {filteredCases.map((item) => (
                                 <div
                                     key={item.id}
-                                    className="flex-shrink-0 w-[280px] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden"
+                                    className="flex-shrink-0 w-[280px]"
                                 >
-                                    {/* Before/After Images Side by Side */}
-                                    <div className="grid grid-cols-2 gap-0.5 bg-black/20">
-                                        <div className="relative aspect-square overflow-hidden">
-                                            <Image
-                                                src={item.beforeImage}
-                                                alt={`Before ${t(`items.${item.titleKey}.title`)}`}
-                                                fill
-                                                sizes="140px"
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                        <div className="relative aspect-square overflow-hidden">
-                                            <Image
-                                                src={item.afterImage}
-                                                alt={`After ${t(`items.${item.titleKey}.title`)}`}
-                                                fill
-                                                sizes="140px"
-                                                className="object-cover"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Content */}
-                                    <div className="p-4">
-                                        <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-2">
-                                            {t(`categories.${item.categoryKey}`)}
-                                        </span>
-                                        <h3 className="text-sm font-bold text-white mb-1">
-                                            {t(`items.${item.titleKey}.title`)}
-                                        </h3>
-                                        <p className="text-white/60 text-xs leading-relaxed line-clamp-2">
-                                            {t(`items.${item.titleKey}.description`)}
-                                        </p>
-                                    </div>
+                                    <CaseCard data={item} />
                                 </div>
                             ))}
                         </div>
@@ -225,47 +158,7 @@ export default function CaseGallerySection() {
                         >
                             {filteredCases.map((item) => (
                                 <SwiperSlide key={item.id}>
-                                    <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden hover:border-[#a02595]/50 transition-all duration-300 group h-full">
-                                        {/* Before/After Images Side by Side */}
-                                        <div className="grid grid-cols-2 gap-0.5 bg-black/20">
-                                            {/* Before Image */}
-                                            <div className="relative aspect-square overflow-hidden">
-                                                <Image
-                                                    src={item.beforeImage}
-                                                    alt={`Before ${t(`items.${item.titleKey}.title`)}`}
-                                                    fill
-                                                    sizes="(max-width: 1024px) 25vw, 20vw"
-                                                    className="object-cover"
-                                                    quality={80}
-                                                />
-                                            </div>
-
-                                            {/* After Image */}
-                                            <div className="relative aspect-square overflow-hidden">
-                                                <Image
-                                                    src={item.afterImage}
-                                                    alt={`After ${t(`items.${item.titleKey}.title`)}`}
-                                                    fill
-                                                    sizes="(max-width: 1024px) 25vw, 20vw"
-                                                    className="object-cover"
-                                                    quality={80}
-                                                />
-                                            </div>
-                                        </div>
-
-                                        {/* Content */}
-                                        <div className="p-5">
-                                            <span className="inline-block px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-white/70 mb-3">
-                                                {t(`categories.${item.categoryKey}`)}
-                                            </span>
-                                            <h3 className="text-base font-bold text-white mb-1 group-hover:text-[#F7931E] transition-colors">
-                                                {t(`items.${item.titleKey}.title`)}
-                                            </h3>
-                                            <p className="text-white/60 text-xs leading-relaxed">
-                                                {t(`items.${item.titleKey}.description`)}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <CaseCard data={item} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

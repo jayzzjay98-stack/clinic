@@ -21,10 +21,11 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-4 left-0 right-0 mx-auto z-50 w-[95%] max-w-6xl backdrop-blur-xl border border-white/10 shadow-lg ${isMobileMenuOpen
-                    ? "hidden"
-                    : "bg-[#1a1a2e]/50 rounded-full"
-                    }`}
+                className={`fixed top-4 left-0 right-0 mx-auto z-50 w-[95%] max-w-6xl backdrop-blur-xl shadow-lg 
+                    bg-[linear-gradient(135deg,rgba(160,37,149,0.4)_0%,rgba(100,20,100,0.5)_50%,rgba(160,37,149,0.4)_100%)]
+                    rounded-[60px] border-[2px] border-white/25
+                    shadow-[0_10px_40px_rgba(160,37,149,0.3),0_0_60px_rgba(247,147,30,0.1),inset_0_1px_10px_rgba(255,255,255,0.15)]
+                    ${isMobileMenuOpen ? "hidden" : ""}`}
             >
                 <div className="px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
@@ -42,8 +43,8 @@ export default function Navbar() {
                             </div>
                         </a>
 
-                        {/* Desktop Navigation */}
-                        <div className="hidden lg:flex items-center gap-8">
+                        {/* Desktop Navigation - Centered */}
+                        <div className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}

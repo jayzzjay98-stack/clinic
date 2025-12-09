@@ -1,85 +1,94 @@
 "use client";
 
 import Image from "next/image";
-import { Star } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Navigation } from 'swiper/modules';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
 
 export default function ReviewsSection() {
     const t = useTranslations('reviews');
 
-    const reviews = [
-        {
-            name: "Sarah M.",
-            service: "Dental Implants",
-            rating: 5,
-            review: "Very impressed! The doctor was kind and explained everything in detail. No pain at all. Got 2 implants done and they work perfectly, just like real teeth!",
-        },
-        {
-            name: "John D.",
-            service: "Teeth Whitening",
-            rating: 5,
-            review: "My teeth are so much whiter now! No sensitivity at all. Staff service was excellent. Will definitely come back!",
-        },
-        {
-            name: "Lisa K.",
-            service: "Orthodontics",
-            rating: 5,
-            review: "Got clear aligners here. Very convenient, can remove when eating. Doctor follows up on treatment regularly. My teeth are beautifully aligned now!",
-        },
+    // 8 review images from Laone Dental Clinic
+    const reviewImages = [
+        "/reviews/review-1.jpg",
+        "/reviews/review-2.jpg",
+        "/reviews/review-3.jpg",
+        "/reviews/review-4.jpg",
+        "/reviews/review-5.jpg",
+        "/reviews/review-6.jpg",
+        "/reviews/review-7.jpg",
+        "/reviews/review-8.jpg",
     ];
 
     return (
-        <section id="reviews" className="py-12 lg:py-16 relative">
+        <section id="reviews" className="py-12 lg:py-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#a02595]/10 via-transparent to-orange-400/10" />
 
-            {/* Cute tooth decoration - bottom left */}
-            <div className="absolute bottom-12 left-4 lg:left-16 hidden md:block opacity-80 animate-bounce-slow">
-                <Image
-                    src="/cute-teeth-small.png"
-                    alt=""
-                    width={130}
-                    height={75}
-                    className="object-contain"
-                    style={{ width: 'auto', height: 'auto' }}
-                    aria-hidden="true"
-                />
-            </div>
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                        {t('subtitle')}
-                    </span>
+                <div className="text-center max-w-3xl mx-auto mb-12">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
                     </h2>
-                    <p className="text-base text-white/80">
-                        {t('description')}
-                    </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {reviews.map((review, index) => (
-                        <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-                            <div className="flex items-center gap-1 text-amber-400 mb-4">
-                                {[...Array(review.rating)].map((_, i) => (
-                                    <Star key={i} className="w-5 h-5 fill-current" />
-                                ))}
-                            </div>
-                            <p className="text-white/80 leading-relaxed mb-6">&ldquo;{review.review}&rdquo;</p>
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#F7931E] to-[#a02595] flex items-center justify-center text-white font-bold">
-                                    {review.name.charAt(0)}
+                {/* Swiper Reviews - Drag to Scroll with Arrows */}
+                <div className="relative px-4 md:px-12">
+                    {/* Custom Navigation Buttons */}
+                    <button
+                        className="reviews-swiper-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
+                        aria-label="Previous"
+                    >
+                        <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                        className="reviews-swiper-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 border border-white/20"
+                        aria-label="Next"
+                    >
+                        <ChevronRight className="w-5 h-5" />
+                    </button>
+
+                    <Swiper
+                        modules={[FreeMode, Navigation]}
+                        spaceBetween={16}
+                        slidesPerView="auto"
+                        speed={500}
+                        grabCursor={true}
+                        freeMode={{
+                            enabled: true,
+                            momentum: true,
+                            momentumRatio: 0.8,
+                            momentumVelocityRatio: 0.8,
+                        }}
+                        navigation={{
+                            prevEl: '.reviews-swiper-prev',
+                            nextEl: '.reviews-swiper-next',
+                        }}
+                        className="!overflow-visible"
+                    >
+                        {reviewImages.map((image, index) => (
+                            <SwiperSlide key={index} className="!w-auto">
+                                <div
+                                    className="w-[180px] sm:w-[200px] lg:w-[220px] aspect-[4/5] rounded-xl overflow-hidden border-4 border-white/30 hover:border-white/60 transition-all duration-300 shadow-xl hover:scale-105"
+                                >
+                                    <div className="relative w-full h-full bg-gradient-to-br from-[#a02595]/20 to-[#F7931E]/20">
+                                        <Image
+                                            src={image}
+                                            alt={`Review ${index + 1}`}
+                                            fill
+                                            sizes="220px"
+                                            className="object-cover"
+                                        />
+                                    </div>
                                 </div>
-                                <div>
-                                    <p className="font-bold text-white">{review.name}</p>
-                                    <p className="text-sm text-white/80">{review.service}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </div>
         </section>

@@ -27,10 +27,10 @@ export default function WhyChooseUsSection() {
     ];
 
     return (
-        <section id="why-us" className="py-12 lg:py-16 relative">
+        <section id="why-us" className="py-6 lg:py-8 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-[#c94eb8]/10" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     {/* Left Column - Bento Grid Style */}
                     <div className="grid grid-cols-3 grid-rows-3 gap-3 h-[500px] lg:h-[600px]">
                         {/* Large image - top left, spans 2 cols */}
@@ -96,19 +96,13 @@ export default function WhyChooseUsSection() {
                     </div>
 
                     {/* Right Column - Content */}
-                    <div className="space-y-8 text-center lg:text-left">
+                    <div className="space-y-6 text-center lg:text-left lg:-mt-8">
                         <div>
-                            <span className="inline-block text-white font-semibold text-sm uppercase tracking-wider mb-4">
-                                {t('subtitle')}
-                            </span>
-                            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-6">
+                            <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight">
                                 <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                                     {t('title')}
                                 </span>
                             </h2>
-                            <p className="text-base lg:text-lg text-white/80 max-w-lg mx-auto lg:mx-0">
-                                {t('description')}
-                            </p>
                         </div>
 
                         {/* Features */}

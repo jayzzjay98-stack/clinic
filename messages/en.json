@@ -8,10 +8,10 @@
         "bookNow": "Book Now"
     },
     "hero": {
-        "badge": "Trusted by over 10,000+ customers",
-        "title1": "Every Smile",
-        "title2": "Shines Bright",
-        "title3": "Starts Here",
+        "badge": "Trusted by 1000+ customers",
+        "title1": "Smile Confidently",
+        "title2": "Starts Here at",
+        "title3": "Laone Dental Clinic",
         "subtitle": "Comprehensive dental care with modern technology by our expert dental team",
         "bookFree": "Book Free",
         "callUs": "Call Us",
@@ -19,7 +19,7 @@
     },
     "services": {
         "subtitle": "Our Expertise",
-        "title": "Dental Services",
+        "title": "Complete Dental Services at Laone Dental Clinic",
         "description": "Premium dental care with world-class dentists and modern facilities",
         "bookNow": "Book Now",
         "implants": {
@@ -61,8 +61,8 @@
                 "description": "Highly qualified and experienced team"
             },
             "care": {
-                "title": "Gentle Care",
-                "description": "Comfortable and pain-free treatments"
+                "title": "Premium Quality",
+                "description": "The best dental services for you"
             },
             "pricing": {
                 "title": "Transparent Pricing",
@@ -78,8 +78,8 @@
     },
     "cases": {
         "subtitle": "Success Stories",
-        "title": "Real Transformations",
-        "description": "See the results we've achieved for our happy customers.",
+        "title": "Before & After Reviews",
+        "description": "Customer satisfaction guaranteed",
         "categories": {
             "all": "All",
             "orthodontics": "Orthodontics",

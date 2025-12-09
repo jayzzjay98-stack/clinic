@@ -2,129 +2,184 @@
 
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
+import { motion } from "framer-motion";
 import {
     Calendar,
-    ShieldCheck,
     Phone,
     Star,
+    ShieldCheck,
+    Sparkles
 } from "lucide-react";
 
 export default function HeroSection() {
     const t = useTranslations('hero');
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: { type: "spring" as const, stiffness: 100 }
+        }
+    };
+
+
+
     return (
-        <section className="min-h-screen pt-24 lg:pt-20 relative overflow-hidden">
-            {/* Decorative Background Orbs for Dimension */}
-            <div className="absolute top-20 right-10 w-72 md:w-96 h-72 md:h-96 bg-gradient-to-br from-orange-500/20 to-pink-500/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 left-10 w-64 md:w-80 h-64 md:h-80 bg-gradient-to-tr from-[#a02595]/30 to-[#c94eb8]/20 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#a02595]/10 to-orange-400/10 rounded-full blur-3xl" />
+        <section className="relative min-h-[100dvh] pt-28 lg:pt-36 pb-20 lg:pb-28 overflow-hidden flex items-center">
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-20">
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-                    {/* Left Column - Text Content */}
-                    <div className="space-y-6 lg:space-y-8 relative z-10 text-center lg:text-left order-2 lg:order-1">
-                        <div className="inline-flex items-center gap-2 bg-[#FEF3E2] text-[#a02595] px-4 py-2 rounded-full text-sm font-medium">
-                            <ShieldCheck className="w-4 h-4" />
-                            {t('badge')}
+            {/* Background - Clean (removed tooth animations) */}
+
+            {/* =========================================
+                MAIN CONTENT
+               ========================================= */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-0 items-center">
+
+                    {/* =========================================
+                        LEFT CLOUD CONTAINER: Text Content
+                       ========================================= */}
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="order-2 lg:order-1"
+                    >
+                        {/* Text Content - No Frame */}
+                        <div className="relative p-8 lg:p-12">
+                            <div className="space-y-6 text-center">
+
+                                <motion.h1
+                                    variants={itemVariants}
+                                    className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-[1.4] tracking-tight"
+                                >
+                                    <span className="block py-1 drop-shadow-lg">{t('title1')}</span>
+                                    <span className="block py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg">
+                                        {t('title2')}
+                                    </span>
+                                    <span
+                                        className="block py-1 text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)]"
+                                    >
+                                        {t('title3')}
+                                    </span>
+                                </motion.h1>
+
+                                <motion.p
+                                    variants={itemVariants}
+                                    className="text-base sm:text-lg text-white/90 max-w-md mx-auto leading-relaxed font-medium"
+                                >
+                                    {t('subtitle')}
+                                </motion.p>
+
+                                {/* CTA Buttons - Bubbly Cartoon Style */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
+                                >
+                                    {/* Primary Button - Orange Bubbly */}
+                                    <motion.a
+                                        href="#contact"
+                                        whileHover={{ scale: 1.08, y: -3 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#F7931E] to-[#ff6b35] text-white px-8 py-4 font-bold text-lg shadow-[0_8px_25px_rgba(247,147,30,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px]"
+                                    >
+                                        <Calendar className="w-5 h-5" />
+                                        {t('bookFree')}
+                                    </motion.a>
+                                    {/* Secondary Button - Pink Bubbly */}
+                                    <motion.a
+                                        href="tel:+85620581555555"
+                                        whileHover={{ scale: 1.08, y: -3 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#c94eb8] to-[#a02595] text-white px-8 py-4 font-bold text-lg shadow-[0_8px_25px_rgba(160,37,149,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px]"
+                                    >
+                                        <Phone className="w-5 h-5" />
+                                        {t('callUs')}
+                                    </motion.a>
+                                </motion.div>
+
+                                {/* Social Proof / Stats */}
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="pt-4 flex items-center justify-center gap-6 sm:gap-8"
+                                >
+                                    <div className="text-center">
+                                        <div className="flex items-center justify-center gap-0.5 text-yellow-400 mb-1">
+                                            {[1, 2, 3, 4, 5].map(i => (
+                                                <Star key={i} className="w-4 h-4 fill-current drop-shadow-[0_0_4px_rgba(255,200,0,0.8)]" />
+                                            ))}
+                                        </div>
+                                        <p className="text-xs text-white/80 font-medium">4.9/5 Google</p>
+                                    </div>
+                                    <div className="w-px h-8 bg-white/30" />
+                                    <div className="text-center">
+                                        <p className="text-xl font-black text-white drop-shadow-lg">10k+</p>
+                                        <p className="text-xs text-white/80 font-medium">Happy Customers</p>
+                                    </div>
+                                </motion.div>
+                            </div>
                         </div>
+                    </motion.div>
 
-                        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white leading-tight">
-                            <span className="block">{t('title1')}</span>
-                            <span className="block text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
-                                {t('title2')}
-                            </span>
-                            <span className="block">{t('title3')}</span>
-                        </h1>
+                    {/* =========================================
+                        RIGHT COLUMN: รูปภาพคลินิก (กรอบวงรี)
+                       ========================================= */}
+                    <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: "spring" as const, bounce: 0.5, delay: 0.2 }}
+                        className="relative flex justify-center lg:justify-start items-start order-1 lg:order-2 lg:-ml-12 lg:-mt-16"
+                    >
+                        {/* กรอบวงรีแนวนอน - Bigger */}
+                        <div className="relative w-full max-w-[500px] lg:max-w-[1400px] aspect-[16/10] rounded-[80px] sm:rounded-[120px] lg:rounded-[150px] shadow-2xl border-[5px] border-white/40 overflow-hidden z-10">
+                            {/* รูปคลินิก */}
+                            <Image
+                                src="/clinic-interior.jpg"
+                                alt="Laone Dental Clinic"
+                                fill
+                                sizes="(max-width: 640px) 500px, 1400px"
+                                className="object-cover"
+                                priority
+                            />
+                            {/* เงาสะท้อนกระจก */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none" />
 
-                        <p className="text-base sm:text-lg lg:text-xl text-white/80 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-                            {t('subtitle')}
-                        </p>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#a02595] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:shadow-xl hover:shadow-[#a02595]/30 transition-all transform hover:-translate-y-1"
+                            {/* Trust Badge - Bounce Animation */}
+                            <motion.div
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{
+                                    type: "spring" as const,
+                                    bounce: 0.6,
+                                    delay: 0.5,
+                                    duration: 0.8
+                                }}
+                                className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 lg:top-4 lg:left-1/2 lg:-translate-x-1/2 lg:bottom-auto lg:right-auto z-20"
                             >
-                                <Calendar className="w-5 h-5" />
-                                {t('bookFree')}
-                            </a>
-                            <a
-                                href="tel:+85620581555555"
-                                className="inline-flex items-center justify-center gap-2 border-2 border-white/50 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-white/10 transition-all"
-                            >
-                                <Phone className="w-5 h-5" />
-                                {t('callUs')}
-                            </a>
+                                <motion.div
+                                    animate={{ y: [0, -8, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                                    className="inline-flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-[#a02595]/80 to-[#641464]/90 backdrop-blur-md border-2 border-white/40 text-white px-3 py-1.5 sm:px-6 sm:py-3 rounded-full text-[10px] sm:text-sm font-bold shadow-xl"
+                                >
+                                    <ShieldCheck className="w-3 h-3 sm:w-5 sm:h-5 text-[#F7931E]" />
+                                    {t('badge')}
+                                </motion.div>
+                            </motion.div>
                         </div>
+                    </motion.div>
 
-                        {/* Trust Indicators */}
-                        <div className="flex items-center gap-4 sm:gap-6 pt-2 sm:pt-4 justify-center lg:justify-start">
-                            <div className="flex -space-x-2 sm:-space-x-3">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                                    <Image
-                                        src="/happy-patient.jpg"
-                                        alt="Happy dental patient smiling after treatment"
-                                        width={48}
-                                        height={48}
-                                        className="object-cover w-full h-full"
-                                        style={{ width: '100%', height: '100%' }}
-                                        quality={80}
-                                    />
-                                </div>
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                                    <Image
-                                        src="/dental-treatment.jpg"
-                                        alt="Patient receiving dental treatment"
-                                        width={48}
-                                        height={48}
-                                        className="object-cover w-full h-full"
-                                        style={{ width: '100%', height: '100%' }}
-                                        quality={80}
-                                    />
-                                </div>
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                                    <Image
-                                        src="/teeth-whitening.jpg"
-                                        alt="Professional teeth whitening result"
-                                        width={48}
-                                        height={48}
-                                        className="object-cover w-full h-full"
-                                        style={{ width: '100%', height: '100%' }}
-                                        quality={80}
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <div className="flex items-center gap-1 text-amber-400">
-                                    {[1, 2, 3, 4, 5].map((i) => (
-                                        <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 fill-current" />
-                                    ))}
-                                </div>
-                                <p className="text-white/80 text-xs sm:text-sm">{t('reviews')}</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column - Clinic Image */}
-                    <div className="relative lg:-translate-x-32 order-1 lg:order-2">
-                        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#F7931E] to-[#a02595] p-1 sm:p-1.5">
-                            <div className="rounded-2xl sm:rounded-3xl overflow-hidden">
-                                <div className="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/12] relative">
-                                    <Image
-                                        src="/clinic-interior.jpg"
-                                        alt="Modern Laone Dental Clinic interior with state-of-the-art equipment"
-                                        fill
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw"
-                                        className="object-cover"
-                                        priority
-                                        fetchPriority="high"
-                                        quality={85}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
