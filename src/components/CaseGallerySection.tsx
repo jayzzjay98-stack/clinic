@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import CaseCard from "@/components/cards/CaseCard";
+import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 
 // Import Swiper styles
 import "swiper/css";
@@ -40,6 +41,7 @@ export default function CaseGallerySection() {
     const [activeCategory, setActiveCategory] = useState("All");
     const t = useTranslations('cases');
     const isMobile = useIsMobile();
+    const scrollRef = useRef<HTMLElement>(null);
 
     // Filter cases based on active category
     const filteredCases =
@@ -108,22 +110,26 @@ export default function CaseGallerySection() {
 
                     {/* Mobile: Native CSS Scroll */}
                     {isMobile ? (
-                        <div
-                            className="flex gap-4 overflow-x-auto pb-4 px-4"
-                            style={{
-                                WebkitOverflowScrolling: 'touch',
-                                scrollbarWidth: 'none',
-                                msOverflowStyle: 'none'
-                            }}
-                        >
-                            {filteredCases.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="flex-shrink-0 w-[280px]"
-                                >
-                                    <CaseCard data={item} />
-                                </div>
-                            ))}
+                        <div className="relative">
+                            <div
+                                ref={scrollRef as any}
+                                className="flex gap-4 overflow-x-auto pb-4 px-4"
+                                style={{
+                                    WebkitOverflowScrolling: 'touch',
+                                    scrollbarWidth: 'none',
+                                    msOverflowStyle: 'none'
+                                }}
+                            >
+                                {filteredCases.map((item) => (
+                                    <div
+                                        key={item.id}
+                                        className="flex-shrink-0 w-[280px]"
+                                    >
+                                        <CaseCard data={item} />
+                                    </div>
+                                ))}
+                            </div>
+                            <MobileScrollButtons containerRef={scrollRef as any} itemWidth={280} />
                         </div>
                     ) : (
                         /* Desktop: Swiper */

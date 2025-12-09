@@ -1,11 +1,14 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 
 export default function ServicesSection() {
     const t = useTranslations('services');
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const services = [
         {
@@ -50,6 +53,7 @@ export default function ServicesSection() {
                 {/* Services Carousel - Centered with Scroll */}
                 <div className="relative">
                     <div
+                        ref={scrollRef}
                         className="flex gap-6 overflow-x-auto pb-6 px-4 justify-start lg:justify-center scrollbar-hide"
                         style={{
                             scrollbarWidth: 'none',
@@ -98,6 +102,7 @@ export default function ServicesSection() {
                             </div>
                         ))}
                     </div>
+                    <MobileScrollButtons containerRef={scrollRef as any} itemWidth={300} />
                 </div>
             </div>
         </section>

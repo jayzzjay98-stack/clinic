@@ -8,6 +8,7 @@ export interface Doctor {
     image: string;
     bio: string;
     credentials: string[];
+    schedule: string;
 }
 
 export interface CaseStudy {

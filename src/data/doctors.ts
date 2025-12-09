@@ -11,6 +11,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=600&fit=crop&crop=face",
         bio: "Founder and lead dentist at Laone Dental Clinic. Specializes in dental implants, cosmetic makeovers, and full-mouth rehabilitation. Trained in Germany for advanced implantology techniques.",
         credentials: ["Implant Specialist", "Cosmetic Expert", "Dental Member", "Licensed Dentist"],
+        schedule: "Mon - Sat: 09:00 - 19:00",
     },
     {
         id: 2,
@@ -22,6 +23,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=600&h=600&fit=crop&crop=face",
         bio: "Expert orthodontist with extensive experience in braces and clear aligners. Certified Invisalign Diamond provider. Passionate about creating perfect smiles for patients of all ages.",
         credentials: ["Orthodontic Specialist", "Invisalign Diamond", "PhD Research", "Licensed Dentist"],
+        schedule: "Mon - Fri: 10:00 - 18:00",
     },
     {
         id: 3,
@@ -33,6 +35,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=600&fit=crop&crop=face",
         bio: "Skilled oral surgeon specializing in wisdom tooth extractions, dental implants, and complex surgical procedures. Known for gentle techniques that minimize discomfort and recovery time.",
         credentials: ["Oral Surgery Specialist", "Implant Surgery", "Hospital Trained", "Licensed Dentist"],
+        schedule: "Tue - Sun: 09:00 - 17:00",
     },
     {
         id: 4,
@@ -44,6 +47,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=600&h=600&fit=crop&crop=face",
         bio: "Dedicated pediatric dentist who creates a fun, stress-free environment for children. Specializes in preventive care, sealants, and early orthodontic intervention.",
         credentials: ["Pediatric Specialist", "Child Psychology", "Sedation Certified", "Licensed Dentist"],
+        schedule: "Wed - Sun: 09:00 - 18:00",
     },
     {
         id: 5,
@@ -55,6 +59,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&h=600&fit=crop&crop=face",
         bio: "Periodontal specialist focused on gum health and treating gum disease. Uses laser technology for minimally invasive treatments. Expert in gum grafting and bone regeneration.",
         credentials: ["Periodontal Specialist", "Laser Dentistry", "Gum Surgery Expert", "Licensed Dentist"],
+        schedule: "Mon - Fri: 09:00 - 17:00",
     },
     {
         id: 6,
@@ -66,6 +71,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=600&h=600&fit=crop&crop=face",
         bio: "Endodontic specialist with expertise in root canal therapy and saving damaged teeth. Uses microscopic technology for precision treatments and painless procedures.",
         credentials: ["Endodontic Specialist", "Microscopic Dentistry", "PhD Research", "Licensed Dentist"],
+        schedule: "Mon - Sat: 10:00 - 19:00",
     },
     {
         id: 7,
@@ -77,6 +83,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&h=600&fit=crop&crop=face",
         bio: "Prosthodontic specialist creating beautiful crowns, bridges, and dentures. Expert in full-mouth reconstruction using digital CAD/CAM technology for precise restorations.",
         credentials: ["Prosthodontic Specialist", "CAD/CAM Expert", "Smile Design", "Licensed Dentist"],
+        schedule: "Tue - Sun: 10:00 - 18:00",
     },
     {
         id: 8,
@@ -88,6 +95,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1559839914-17aae19cec71?w=600&h=600&fit=crop&crop=face",
         bio: "Cosmetic dentistry expert specializing in teeth whitening and smile makeovers. Uses LED and laser whitening technology to achieve bright, confident smiles safely.",
         credentials: ["Cosmetic Specialist", "Whitening Expert", "Veneer Artist", "Licensed Dentist"],
+        schedule: "Mon - Fri: 11:00 - 20:00",
     },
     {
         id: 9,
@@ -99,6 +107,7 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=600&fit=crop&crop=face",
         bio: "Specialist in TMJ disorders and sleep apnea treatment. Creates custom oral appliances for snoring and sleep disorders. Expert in treating jaw pain and bite problems.",
         credentials: ["TMJ Specialist", "Sleep Medicine", "Bite Analysis", "Licensed Dentist"],
+        schedule: "Thu - Sun: 09:00 - 16:00",
     },
     {
         id: 10,
@@ -110,5 +119,6 @@ export const doctors: Doctor[] = [
         image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=600&h=600&fit=crop&crop=face",
         bio: "General dentist providing comprehensive care for the whole family. Expert in preventive dentistry, fillings, and routine checkups. Known for gentle care and thorough patient education.",
         credentials: ["General Dentistry", "Preventive Care", "Family Dentistry", "Licensed Dentist"],
+        schedule: "Mon - Sat: 08:30 - 17:00",
     },
 ];
