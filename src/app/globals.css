@@ -163,3 +163,20 @@ html {
     transform: scale(1) translateY(0);
   }
 }
+
+/* Slow Bounce Animation */
+@keyframes slowBounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-slow-bounce {
+  animation: slowBounce 2s ease-in-out infinite;
+}

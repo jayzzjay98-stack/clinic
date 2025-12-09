@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <footer id="footer" className="bg-[#1E293B] text-white">
             {/* Contact CTA */}
-            <section id="contact" className="py-16 bg-gradient-to-r from-[#F7931E] to-[#a02595]">
+            <section id="contact" className="py-10 md:py-16 bg-gradient-to-r from-[#F7931E] to-[#a02595]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                         {t('title')}
@@ -60,14 +60,14 @@ export default function Footer() {
             </section>
 
             {/* Footer Content */}
-            <div className="py-16">
+            <div className="py-10 md:py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                         {/* Logo & About */}
                         <div className="lg:col-span-1">
                             <a href="#" className="block mb-6">
                                 <Image
-                                    src="/laone-logo-transparent.png"
+                                    src="/laone-logo-transparent.webp"
                                     alt="Laone Dental Clinic Logo - Expert Dental Care in Vientiane"
                                     width={280}
                                     height={140}

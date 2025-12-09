@@ -30,11 +30,11 @@ export default function ReviewsSection() {
     ];
 
     return (
-        <section id="reviews" className="py-12 lg:py-16 relative overflow-hidden">
+        <section id="reviews" className="py-8 md:py-12 lg:py-16 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-tr from-[#a02595]/10 via-transparent to-orange-400/10" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center max-w-3xl mx-auto mb-12">
+                <div className="text-center max-w-3xl mx-auto mb-6 md:mb-12">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}

@@ -41,7 +41,7 @@ export default function CaseGallerySection() {
     return (
         <section
             id="cases"
-            className="py-12 lg:py-16 relative [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:bg-[#F7931E] [&_.swiper-pagination-bullet-active]:scale-125"
+            className="py-8 md:py-12 lg:py-16 relative [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet]:opacity-100 [&_.swiper-pagination-bullet-active]:bg-[#F7931E] [&_.swiper-pagination-bullet-active]:scale-125"
         >
             {/* Background - pointer-events-none prevents blocking clicks */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#a02595]/10 via-transparent to-orange-500/10 pointer-events-none" />
@@ -50,7 +50,7 @@ export default function CaseGallerySection() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-10">
+                <div className="text-center max-w-3xl mx-auto mb-6 md:mb-10">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 whitespace-pre-line">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}

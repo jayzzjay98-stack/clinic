@@ -38,14 +38,14 @@ export default function DoctorSection() {
     };
 
     return (
-        <section id="doctor" className="py-24 relative overflow-hidden">
+        <section id="doctor" className="py-12 md:py-24 relative overflow-hidden">
             {/* Background Decorations */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[#a02595]/5 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-[#F7931E]/5 to-transparent pointer-events-none" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16 max-w-3xl mx-auto">
+                <div className="text-center mb-8 md:mb-16 max-w-3xl mx-auto">
                     <span className="text-[#F7931E] font-semibold tracking-wider uppercase text-base md:text-lg mb-3 block">
                         {t('subtitle')}
                     </span>

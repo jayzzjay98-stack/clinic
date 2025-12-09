@@ -60,21 +60,30 @@ export default function HeroSection() {
                         {/* Text Content - No Frame */}
                         <div className="relative p-8 lg:p-12">
                             <div className="space-y-6 text-center">
-
-                                <motion.h1
-                                    variants={itemVariants}
-                                    className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-[1.4] tracking-tight"
-                                >
-                                    <span className="block py-1 drop-shadow-lg">{t('title1')}</span>
-                                    <span className="block py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg">
-                                        {t('title2')}
-                                    </span>
-                                    <span
-                                        className="block py-1 text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)]"
+                                {/* Title with Mascot on left side */}
+                                <div className="flex items-center justify-center gap-3 sm:gap-4">
+                                    <Image
+                                        src="/hero-mascot.webp"
+                                        alt="Dental Mascot"
+                                        width={100}
+                                        height={100}
+                                        className="animate-slow-bounce drop-shadow-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex-shrink-0"
+                                    />
+                                    <motion.h1
+                                        variants={itemVariants}
+                                        className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-[1.4] tracking-tight text-left"
                                     >
-                                        {t('title3')}
-                                    </span>
-                                </motion.h1>
+                                        <span className="block py-1 drop-shadow-lg">{t('title1')}</span>
+                                        <span className="block py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg">
+                                            {t('title2')}
+                                        </span>
+                                        <span
+                                            className="block py-1 text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)]"
+                                        >
+                                            {t('title3')}
+                                        </span>
+                                    </motion.h1>
+                                </div>
 
                                 <motion.p
                                     variants={itemVariants}
@@ -182,6 +191,6 @@ export default function HeroSection() {
 
                 </div>
             </div>
-        </section>
+        </section >
     );
 }

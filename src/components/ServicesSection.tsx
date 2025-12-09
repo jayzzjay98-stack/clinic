@@ -34,12 +34,32 @@ export default function ServicesSection() {
     ];
 
     return (
-        <section id="services" className="py-12 lg:py-16 relative">
+        <section id="services" className="py-8 md:py-12 lg:py-16 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16 relative">
+                    {/* Tooth Mascot - left side (all screens) */}
+                    <div className="absolute left-0 top-1/4 -translate-y-1/2 -translate-x-1/4 md:-translate-x-1/2">
+                        <Image
+                            src="/tooth-mascot-v2.webp"
+                            alt="Tooth Mascot"
+                            width={160}
+                            height={160}
+                            className="animate-slow-bounce drop-shadow-lg w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40"
+                        />
+                    </div>
+                    {/* Dental Scene - right side (all screens) */}
+                    <div className="absolute right-0 top-1/4 -translate-y-1/2 translate-x-1/4 md:translate-x-1/2">
+                        <Image
+                            src="/dental-scene-v2.webp"
+                            alt="Dental Scene"
+                            width={200}
+                            height={200}
+                            className="animate-slow-bounce drop-shadow-lg w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48"
+                        />
+                    </div>
                     <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
