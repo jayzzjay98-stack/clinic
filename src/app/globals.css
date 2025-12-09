@@ -164,19 +164,7 @@ html {
   }
 }
 
-/* Slow Bounce Animation */
-@keyframes slowBounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
+/* Slow Bounce Animation - Uses bounce-slow keyframes */
 .animate-slow-bounce {
-  animation: slowBounce 2s ease-in-out infinite;
+  animation: bounce-slow 2s ease-in-out infinite;
 }

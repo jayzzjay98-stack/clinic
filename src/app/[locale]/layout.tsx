@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, Noto_Sans_Lao, Noto_Sans_Thai, Noto_Sans_SC } from "next/font/google";
+import { Plus_Jakarta_Sans, Noto_Sans_Lao, Noto_Sans_Thai, Noto_Sans_SC, Source_Sans_3 } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -35,6 +35,13 @@ const notoSansSC = Noto_Sans_SC({
     variable: "--font-noto-sc",
     subsets: ["latin"],
     weight: ["400", "500", "600", "700"],
+    display: "swap",
+});
+
+const sourceSans = Source_Sans_3({
+    variable: "--font-source-sans",
+    subsets: ["latin"],
+    weight: ["400", "600", "700", "900"],
     display: "swap",
 });
 
@@ -117,7 +124,7 @@ export default async function LocaleLayout({
           window.addEventListener('load', function() { setTimeout(scrollToTop, 0); });
         `}} />
             </head>
-            <body className={`${plusJakarta.variable} ${notoSansLao.variable} ${notoSansThai.variable} ${notoSansSC.variable} font-sans antialiased`}>
+            <body className={`${plusJakarta.variable} ${notoSansLao.variable} ${notoSansThai.variable} ${notoSansSC.variable} ${sourceSans.variable} font-sans antialiased`}>
                 <NextIntlClientProvider messages={messages}>
                     <SmoothScrolling>
                         {children}

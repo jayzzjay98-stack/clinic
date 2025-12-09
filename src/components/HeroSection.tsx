@@ -10,6 +10,7 @@ import {
     ShieldCheck,
     Sparkles
 } from "lucide-react";
+import SplitText from "@/components/ui/SplitText";
 
 export default function HeroSection() {
     const t = useTranslations('hero');
@@ -59,35 +60,45 @@ export default function HeroSection() {
                     >
                         {/* Text Content - No Frame */}
                         <div className="relative p-8 lg:p-12">
-                            <div className="space-y-6 text-center">
+                            <div className="space-y-20 text-center">
                                 {/* Title with Mascot on left side */}
-                                <div className="flex items-center justify-center gap-3 sm:gap-4">
-                                    <Image
-                                        src="/hero-mascot.webp"
-                                        alt="Dental Mascot"
-                                        width={100}
-                                        height={100}
-                                        className="animate-slow-bounce drop-shadow-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 flex-shrink-0"
-                                    />
+                                <div className="relative flex items-center justify-center">
+                                    {/* Mascot - Absolute positioned on left */}
+                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 pr-4">
+                                        <Image
+                                            src="/hero-mascot.webp"
+                                            alt="Dental Mascot"
+                                            width={100}
+                                            height={100}
+                                            className="animate-slow-bounce drop-shadow-lg w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24"
+                                        />
+                                    </div>
                                     <motion.h1
                                         variants={itemVariants}
-                                        className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-white leading-[1.4] tracking-tight text-left"
+                                        className="text-sm sm:text-lg lg:text-2xl font-extrabold text-white leading-[1.4] tracking-tight text-center"
                                     >
-                                        <span className="block py-1 drop-shadow-lg">{t('title1')}</span>
-                                        <span className="block py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg">
-                                            {t('title2')}
-                                        </span>
-                                        <span
-                                            className="block py-1 text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)]"
-                                        >
-                                            {t('title3')}
-                                        </span>
+                                        <span className="py-1 drop-shadow-lg whitespace-nowrap">{t('title1')}</span>
+                                        {t('title2') && <span className="py-1 text-transparent bg-clip-text bg-gradient-to-r from-[#F7931E] via-[#ffbbf2] to-[#a02595] drop-shadow-lg"> {t('title2')}</span>}
+                                        <div className="block py-1 mt-12">
+                                            <SplitText
+                                                text={t('title3')}
+                                                tag="span"
+                                                className="text-2xl sm:text-4xl lg:text-5xl text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap font-[family-name:var(--font-source-sans)]"
+                                                splitType="chars"
+                                                delay={50}
+                                                duration={0.5}
+                                                ease="easeOut"
+                                                from={{ opacity: 0, y: 40, rotateX: -90 }}
+                                                to={{ opacity: 1, y: 0, rotateX: 0 }}
+                                                threshold={0.1}
+                                            />
+                                        </div>
                                     </motion.h1>
                                 </div>
 
                                 <motion.p
                                     variants={itemVariants}
-                                    className="text-base sm:text-lg text-white/90 max-w-md mx-auto leading-relaxed font-medium"
+                                    className="text-base sm:text-lg text-white/90 max-w-md mx-auto leading-relaxed font-medium whitespace-pre-line"
                                 >
                                     {t('subtitle')}
                                 </motion.p>
@@ -95,16 +106,16 @@ export default function HeroSection() {
                                 {/* CTA Buttons - Bubbly Cartoon Style */}
                                 <motion.div
                                     variants={itemVariants}
-                                    className="flex flex-col sm:flex-row gap-4 justify-center pt-2"
+                                    className="flex flex-row gap-2 sm:gap-4 justify-center !-mt-16"
                                 >
                                     {/* Primary Button - Orange Bubbly */}
                                     <motion.a
                                         href="#contact"
                                         whileHover={{ scale: 1.08, y: -3 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#F7931E] to-[#ff6b35] text-white px-8 py-4 font-bold text-lg shadow-[0_8px_25px_rgba(247,147,30,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px]"
+                                        className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-br from-[#F7931E] to-[#ff6b35] text-white px-3 sm:px-8 py-2 sm:py-4 font-bold text-[11px] sm:text-lg shadow-[0_8px_25px_rgba(247,147,30,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px] whitespace-nowrap"
                                     >
-                                        <Calendar className="w-5 h-5" />
+                                        <Calendar className="w-3.5 h-3.5 sm:w-5 sm:h-5 flex-shrink-0" />
                                         {t('bookFree')}
                                     </motion.a>
                                     {/* Secondary Button - Pink Bubbly */}
@@ -112,9 +123,9 @@ export default function HeroSection() {
                                         href="tel:+85620581555555"
                                         whileHover={{ scale: 1.08, y: -3 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#c94eb8] to-[#a02595] text-white px-8 py-4 font-bold text-lg shadow-[0_8px_25px_rgba(160,37,149,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px]"
+                                        className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-br from-[#c94eb8] to-[#a02595] text-white px-3 sm:px-8 py-2 sm:py-4 font-bold text-[11px] sm:text-lg shadow-[0_8px_25px_rgba(160,37,149,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px] whitespace-nowrap"
                                     >
-                                        <Phone className="w-5 h-5" />
+                                        <Phone className="w-3.5 h-3.5 sm:w-5 sm:h-5 flex-shrink-0" />
                                         {t('callUs')}
                                     </motion.a>
                                 </motion.div>
@@ -122,7 +133,7 @@ export default function HeroSection() {
                                 {/* Social Proof / Stats */}
                                 <motion.div
                                     variants={itemVariants}
-                                    className="pt-4 flex items-center justify-center gap-6 sm:gap-8"
+                                    className="!-mt-12 flex items-center justify-center gap-6 sm:gap-8"
                                 >
                                     <div className="text-center">
                                         <div className="flex items-center justify-center gap-0.5 text-yellow-400 mb-1">
@@ -149,13 +160,13 @@ export default function HeroSection() {
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring" as const, bounce: 0.5, delay: 0.2 }}
-                        className="relative flex justify-center lg:justify-start items-start order-1 lg:order-2 lg:-ml-12 lg:-mt-16"
+                        className="relative flex justify-center lg:justify-start items-start order-1 lg:order-2 lg:translate-x-8 lg:-mt-32"
                     >
                         {/* กรอบวงรีแนวนอน - Bigger */}
                         <div className="relative w-full max-w-[500px] lg:max-w-[1400px] aspect-[16/10] rounded-[80px] sm:rounded-[120px] lg:rounded-[150px] shadow-2xl border-[5px] border-white/40 overflow-hidden z-10">
                             {/* รูปคลินิก */}
                             <Image
-                                src="/clinic-interior.jpg"
+                                src="/clinic-interior.webp"
                                 alt="Laone Dental Clinic"
                                 fill
                                 sizes="(max-width: 640px) 500px, 1400px"

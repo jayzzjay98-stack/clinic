@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Calendar, Phone, Menu, X } from "lucide-react";
 import { useTranslations } from 'next-intl';
@@ -8,7 +8,28 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
     const t = useTranslations('nav');
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Show navbar when scrolling up or at top
+            if (currentScrollY < lastScrollY || currentScrollY < 100) {
+                setIsNavbarVisible(true);
+            } else {
+                // Hide navbar when scrolling down
+                setIsNavbarVisible(false);
+            }
+
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [lastScrollY]);
 
     const navLinks = [
         { name: t('services'), href: "#services" },
@@ -25,7 +46,9 @@ export default function Navbar() {
                     bg-[linear-gradient(135deg,rgba(160,37,149,0.4)_0%,rgba(100,20,100,0.5)_50%,rgba(160,37,149,0.4)_100%)]
                     rounded-[60px] border-[2px] border-white/25
                     shadow-[0_10px_40px_rgba(160,37,149,0.3),0_0_60px_rgba(247,147,30,0.1),inset_0_1px_10px_rgba(255,255,255,0.15)]
-                    ${isMobileMenuOpen ? "hidden" : ""}`}
+                    transition-transform duration-300 ease-in-out
+                    ${isMobileMenuOpen ? "hidden" : ""}
+                    ${!isNavbarVisible && !isMobileMenuOpen ? "-translate-y-[150%]" : "translate-y-0"}`}
             >
                 <div className="px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">

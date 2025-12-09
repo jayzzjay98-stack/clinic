@@ -84,7 +84,7 @@ export default function WhyChooseUsSection() {
                         {/* Bottom center image */}
                         <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg relative">
                             <Image
-                                src="/clinic-interior.jpg"
+                                src="/clinic-interior.webp"
                                 alt="Clean and modern Laone Dental Clinic waiting area"
                                 fill
                                 sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw, 17vw"

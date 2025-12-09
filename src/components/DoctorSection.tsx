@@ -118,7 +118,7 @@ export default function DoctorSection() {
             {/* Doctor Detail Modal */}
             {isModalVisible && selectedDoctor && (
                 <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-[fadeIn_0.3s_ease-out]"
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 animate-[fadeIn_0.3s_ease-out]"
                     role="dialog"
                     aria-modal="true"
                 >
@@ -126,7 +126,7 @@ export default function DoctorSection() {
                         className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-[fadeIn_0.2s_ease-out]"
                         onClick={closeModal}
                     />
-                    <div className="bg-gradient-to-br from-[#1a1a2e] via-[#2d1b3d] to-[#1a1a2e] border border-white/10 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative z-10 animate-[scaleIn_0.35s_cubic-bezier(0.34,1.56,0.64,1)]">
+                    <div className="bg-gradient-to-br from-[#1a1a2e] via-[#2d1b3d] to-[#1a1a2e] border border-white/10 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative z-[110] animate-[scaleIn_0.35s_cubic-bezier(0.34,1.56,0.64,1)]">
                         {/* Close Button */}
                         <button
                             onClick={closeModal}

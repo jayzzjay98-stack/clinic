@@ -60,7 +60,7 @@ export default function ServicesSection() {
                             className="animate-slow-bounce drop-shadow-lg w-20 h-20 sm:w-28 sm:h-28 md:w-48 md:h-48"
                         />
                     </div>
-                    <h2 className="text-xl sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
+                    <h2 className="text-base sm:text-2xl lg:text-4xl font-bold text-white mb-6 leading-tight whitespace-pre-line">
                         <span className="text-white drop-shadow-[0_4px_12px_rgba(160,37,149,0.4)]">
                             {t('title')}
                         </span>
