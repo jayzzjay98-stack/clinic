@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import { useIsMobile } from "@/hooks/useIsMobile";
 import CaseCard from "@/components/cards/CaseCard";
 import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 
@@ -13,18 +14,6 @@ import MobileScrollButtons from "@/components/ui/MobileScrollButtons";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// Hook to detect mobile
-function useIsMobile() {
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
-        checkMobile();
-        window.addEventListener("resize", checkMobile);
-        return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-    return isMobile;
-}
 
 // Categories for filtering (key -> internal name mapping)
 const categoryKeys = [

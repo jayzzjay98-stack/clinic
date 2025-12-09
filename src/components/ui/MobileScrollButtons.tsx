@@ -12,27 +12,36 @@ export default function MobileScrollButtons({ containerRef, itemWidth = 300 }: M
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(true);
 
-    // Update visibility on scroll
+    // Update visibility on scroll with throttling
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
 
+        let ticking = false;
         const checkScroll = () => {
             const { scrollLeft, scrollWidth, clientWidth } = container;
-            setShowLeft(scrollLeft > 20); // Show left if scrolled more than 20px
-            setShowRight(scrollLeft < scrollWidth - clientWidth - 20); // Show right if not near end
+            setShowLeft(scrollLeft > 20);
+            setShowRight(scrollLeft < scrollWidth - clientWidth - 20);
+            ticking = false;
+        };
+
+        const throttledCheck = () => {
+            if (!ticking) {
+                requestAnimationFrame(checkScroll);
+                ticking = true;
+            }
         };
 
         // Initial check
         checkScroll();
 
-        // Listen for scroll events
-        container.addEventListener("scroll", checkScroll);
-        window.addEventListener("resize", checkScroll);
+        // Listen with passive for better performance
+        container.addEventListener("scroll", throttledCheck, { passive: true });
+        window.addEventListener("resize", throttledCheck, { passive: true });
 
         return () => {
-            container.removeEventListener("scroll", checkScroll);
-            window.removeEventListener("resize", checkScroll);
+            container.removeEventListener("scroll", throttledCheck);
+            window.removeEventListener("resize", throttledCheck);
         };
     }, [containerRef]);
 

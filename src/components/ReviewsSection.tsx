@@ -19,14 +19,14 @@ export default function ReviewsSection() {
 
     // 8 review images from Laone Dental Clinic
     const reviewImages = [
-        "/reviews/review-1.jpg",
-        "/reviews/review-2.jpg",
-        "/reviews/review-3.jpg",
-        "/reviews/review-4.jpg",
-        "/reviews/review-5.jpg",
-        "/reviews/review-6.jpg",
-        "/reviews/review-7.jpg",
-        "/reviews/review-8.jpg",
+        "/reviews/review-1.webp",
+        "/reviews/review-2.webp",
+        "/reviews/review-3.webp",
+        "/reviews/review-4.webp",
+        "/reviews/review-5.webp",
+        "/reviews/review-6.webp",
+        "/reviews/review-7.webp",
+        "/reviews/review-8.webp",
     ];
 
     return (
