@@ -69,9 +69,9 @@ export const fontConfig: Record<Locale, LocaleFontConfig> = {
             hero: {
                 title1: 'text-2xl',
                 title2: 'text-2xl',
-                title3: 'text-4xl',
+                title3: 'text-6xl',
                 subtitle: 'text-base',
-                button: 'text-xs',
+                button: 'text-sm',
             },
             services: {
                 title: 'text-xl',
