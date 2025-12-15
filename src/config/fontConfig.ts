@@ -106,8 +106,8 @@ export const fontConfig: Record<Locale, LocaleFontConfig> = {
         },
         desktop: {
             hero: {
-                title1: 'text-2xl',
-                title2: 'text-2xl',
+                title1: 'text-3xl',
+                title2: 'text-3xl',
                 title3: 'text-7xl',
                 subtitle: 'text-lg',
                 button: 'text-lg',
@@ -187,8 +187,8 @@ export const fontConfig: Record<Locale, LocaleFontConfig> = {
         },
         desktop: {
             hero: {
-                title1: 'text-2xl',
-                title2: 'text-2xl',
+                title1: 'text-3xl',
+                title2: 'text-3xl',
                 title3: 'text-7xl',
                 subtitle: 'text-lg',
                 button: 'text-lg',
@@ -343,8 +343,8 @@ export const fontConfig: Record<Locale, LocaleFontConfig> = {
         },
         desktop: {
             hero: {
-                title1: 'text-2xl',
-                title2: 'text-2xl',
+                title1: 'text-3xl',
+                title2: 'text-3xl',
                 title3: 'text-7xl',
                 subtitle: 'text-lg',
                 button: 'text-lg',
@@ -421,8 +421,8 @@ export const fontConfig: Record<Locale, LocaleFontConfig> = {
         },
         desktop: {
             hero: {
-                title1: 'text-2xl',
-                title2: 'text-2xl',
+                title1: 'text-3xl',
+                title2: 'text-3xl',
                 title3: 'text-7xl',
                 subtitle: 'text-lg',
                 button: 'text-lg',

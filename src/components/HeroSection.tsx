@@ -20,7 +20,7 @@ export default function HeroSection() {
 
     // Margin config per language (mobile only) - kept separate as it's layout-specific
     const marginConfig: Record<string, string> = {
-        lo: 'ml-4',
+        lo: 'ml-8',
         th: 'ml-8',
         en: 'ml-10',
         vi: 'ml-4',
