@@ -217,7 +217,18 @@ export default function DoctorSection() {
                                 </div>
 
                                 {/* Book Button */}
-                                <button className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#ff6b35] text-white py-3 px-8 rounded-xl font-semibold shadow-lg shadow-[#F7931E]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 font-latin">
+                                <button
+                                    onClick={() => {
+                                        closeModal();
+                                        setTimeout(() => {
+                                            const contactSection = document.getElementById('contact');
+                                            if (contactSection) {
+                                                contactSection.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }, 300);
+                                    }}
+                                    className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#F7931E] to-[#ff6b35] text-white py-3 px-8 rounded-xl font-semibold shadow-lg shadow-[#F7931E]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 font-latin cursor-pointer"
+                                >
                                     <Calendar className="w-5 h-5" />
                                     {t('bookWith')} {selectedDoctor.name.split(' ')[0]}
                                 </button>

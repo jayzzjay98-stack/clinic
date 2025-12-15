@@ -69,6 +69,15 @@ body {
   font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }
 
+/* Ensure Oleo Script font is used when specified, even in Lao language */
+[style*="--font-oleo-script"],
+.font-\[family-name\:var\(--font-oleo-script\)\],
+[class*="font-oleo-script"],
+.oleo-override,
+.oleo-override * {
+  font-family: var(--font-oleo-script), 'Oleo Script', cursive !important;
+}
+
 /* Smooth Scrolling & Prevent Horizontal Scroll */
 html {
   scroll-behavior: smooth;

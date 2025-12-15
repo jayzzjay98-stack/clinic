@@ -28,6 +28,26 @@ export default function HeroSection() {
     };
     const title1Margin = marginConfig[locale] || '';
 
+    // Image frame margin config per language (mobile only)
+    const imageMarginConfig: Record<string, string> = {
+        lo: 'px-4',
+        th: 'px-4',
+        en: 'pl-1 pr-7',  // Move left
+        vi: 'px-4',
+        zh: 'px-4',
+    };
+    const imagePadding = imageMarginConfig[locale] || 'px-4';
+
+    // Image frame size config per language (mobile only)
+    const imageSizeConfig: Record<string, string> = {
+        lo: 'max-w-[400px]',
+        th: 'max-w-[400px]',
+        en: 'max-w-[360px]',  // Slightly smaller for English
+        vi: 'max-w-[400px]',
+        zh: 'max-w-[400px]',
+    };
+    const imageMaxWidth = imageSizeConfig[locale] || 'max-w-[400px]';
+
     // Animation Variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -97,7 +117,7 @@ export default function HeroSection() {
                                             <SplitText
                                                 text={t('title3')}
                                                 tag="span"
-                                                className={`${fonts.hero.title3} text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap font-[family-name:var(--font-oleo-script)]`}
+                                                className={`${fonts.hero.title3} text-white font-black italic [text-shadow:0_0_20px_rgba(255,255,255,0.5),0_4px_10px_rgba(0,0,0,0.3)] whitespace-nowrap font-[family-name:var(--font-oleo-script)] oleo-override`}
                                                 splitType="chars"
                                                 delay={50}
                                                 duration={0.5}
@@ -120,18 +140,23 @@ export default function HeroSection() {
                                 {/* CTA Buttons - Bubbly Cartoon Style */}
                                 <motion.div
                                     variants={itemVariants}
-                                    className="flex flex-row gap-2 sm:gap-4 justify-center !-mt-16"
+                                    className="flex flex-row gap-2 sm:gap-4 justify-center !-mt-16 relative z-50"
                                 >
                                     {/* Primary Button - Orange Bubbly */}
-                                    <motion.a
-                                        href="#contact"
+                                    <motion.button
+                                        onClick={() => {
+                                            const contactSection = document.getElementById('contact');
+                                            if (contactSection) {
+                                                contactSection.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }}
                                         whileHover={{ scale: 1.08, y: -3 }}
                                         whileTap={{ scale: 0.95 }}
-                                        className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-br from-[#F7931E] to-[#ff6b35] text-white px-3 sm:px-8 py-2 sm:py-4 font-bold text-[11px] sm:text-lg shadow-[0_8px_25px_rgba(247,147,30,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px] whitespace-nowrap"
+                                        className="inline-flex items-center justify-center gap-1 sm:gap-2 bg-gradient-to-br from-[#F7931E] to-[#ff6b35] text-white px-3 sm:px-8 py-2 sm:py-4 font-bold text-[11px] sm:text-lg shadow-[0_8px_25px_rgba(247,147,30,0.5),0_0_0_3px_rgba(255,255,255,0.3)] transition-all duration-300 rounded-[50px] whitespace-nowrap cursor-pointer"
                                     >
                                         <Calendar className="w-3.5 h-3.5 sm:w-5 sm:h-5 flex-shrink-0" />
                                         {t('bookFree')}
-                                    </motion.a>
+                                    </motion.button>
                                     {/* Secondary Button - Pink Bubbly */}
                                     <motion.a
                                         href="tel:+85620581555555"
@@ -174,10 +199,10 @@ export default function HeroSection() {
                         initial={{ scale: 0.8, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring" as const, bounce: 0.5, delay: 0.2 }}
-                        className="relative flex justify-center lg:justify-start items-start order-1 lg:order-2 lg:translate-x-8 lg:-mt-32"
+                        className={`relative flex justify-center lg:justify-start items-start order-1 lg:order-2 lg:translate-x-8 lg:-mt-32 w-full ${imagePadding} sm:px-0`}
                     >
                         {/* กรอบวงรีแนวนอน - Bigger */}
-                        <div className="relative w-full max-w-[500px] lg:max-w-[1400px] aspect-[16/10] rounded-[80px] sm:rounded-[120px] lg:rounded-[150px] shadow-2xl border-[5px] border-white/40 overflow-hidden z-10">
+                        <div className={`relative w-full ${imageMaxWidth} sm:max-w-[500px] lg:max-w-[1400px] aspect-[16/10] rounded-[80px] sm:rounded-[120px] lg:rounded-[150px] shadow-2xl border-[5px] border-white/40 overflow-hidden z-10`}>
                             {/* รูปคลินิก */}
                             <Image
                                 src="/clinic-interior.webp"
