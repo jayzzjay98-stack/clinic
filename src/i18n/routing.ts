@@ -8,5 +8,11 @@ export const routing = defineRouting({
     defaultLocale: 'lo',
 
     // Locale prefix configuration
-    localePrefix: 'as-needed'
+    localePrefix: 'as-needed',
+
+    // Disable browser language detection - always show Lao first
+    localeDetection: false,
+
+    // Disable cookie storage - don't remember previous locale selection
+    localeCookie: false
 });
