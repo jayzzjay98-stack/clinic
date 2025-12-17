@@ -54,14 +54,15 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-16">
                         {/* Logo - Fixed dimensions to prevent layout shift */}
                         <a href="#" className="flex items-center -ml-6 lg:-ml-12 lg:-mt-3">
-                            <div className="w-[200px] h-20 lg:w-[500px] lg:h-[100px] relative flex-shrink-0">
+                            <div className="w-[180px] h-[45px] lg:w-[400px] lg:h-[100px] relative flex-shrink-0">
                                 <Image
                                     src="/laone-dental-logo.png"
                                     alt="Laone Dental"
                                     fill
-                                    sizes="180px"
+                                    sizes="(max-width: 1024px) 180px, 400px"
                                     className="object-contain object-left"
                                     priority
+                                    placeholder="empty"
                                 />
                             </div>
                         </a>
