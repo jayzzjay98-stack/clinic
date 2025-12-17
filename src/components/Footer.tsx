@@ -63,74 +63,82 @@ export default function Footer() {
             </section>
 
             {/* Footer Content */}
-            <div className="py-10 md:py-16">
+            <div className="pt-0 pb-4 md:py-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
                         {/* Logo & About */}
-                        <div className="lg:col-span-1">
-                            <a href="#" className="block mb-6">
+                        <div className="lg:col-span-2 text-center md:text-left">
+                            <a href="#" className="block mb-1">
                                 <Image
                                     src="/laone-dental-logo.png"
                                     alt="Laone Dental Clinic Logo - Expert Dental Care in Vientiane"
                                     width={280}
                                     height={140}
-                                    className="h-28 w-auto object-contain"
+                                    className="h-28 w-auto object-contain mx-auto md:ml-12 -mt-4 md:mt-0"
                                     loading="lazy"
                                 />
                             </a>
-                            <p className="text-white/70 leading-relaxed">
+                            <p className="text-white/70 leading-relaxed text-lg whitespace-pre-line text-center md:text-left">
                                 {tf('about')}
                             </p>
                         </div>
 
-                        {/* Services */}
+                        {/* Services & Working Hours */}
                         <div>
-                            <h4 className="text-lg font-bold mb-6">{tf('services')}</h4>
-                            <ul className="space-y-3">
-                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('implants.title')}</a></li>
-                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('whitening.title')}</a></li>
-                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('orthodontics.title')}</a></li>
-                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('checkup.title')}</a></li>
-                                <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('extraction.title')}</a></li>
-                            </ul>
-                        </div>
+                            <div className="flex items-start justify-between gap-8">
+                                {/* Services List */}
+                                <div>
+                                    <h4 className="text-2xl font-bold mb-6">{tf('services')}</h4>
+                                    <ul className="space-y-3 text-lg">
+                                        <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('implants.title')}</a></li>
+                                        <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('whitening.title')}</a></li>
+                                        <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('orthodontics.title')}</a></li>
+                                        <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('checkup.title')}</a></li>
+                                        <li><a href="#services" className="text-white/70 hover:text-white transition-colors">{ts('extraction.title')}</a></li>
+                                    </ul>
+                                </div>
 
-                        {/* Working Hours */}
-                        <div>
-                            <h4 className="text-lg font-bold mb-6">{tf('hours')}</h4>
-                            <ul className="space-y-2 text-white/70 text-sm">
-                                <li className="flex items-center gap-2">
-                                    <Clock className="w-4 h-4 text-white flex-shrink-0" />
-                                    <span>08:30 - 12:30</span>
-                                </li>
-                                <li className="flex items-center gap-2 ml-6">
-                                    <span>14:00 - 19:00</span>
-                                </li>
-                            </ul>
-                            <p className="text-white/50 text-xs mt-2">{tf('everyday')}</p>
+                                {/* Working Hours */}
+                                <div>
+                                    <h4 className="text-2xl font-bold mb-6">{tf('hours')}</h4>
+                                    <ul className="space-y-2 text-white/70 text-lg">
+                                        <li className="flex items-center gap-2">
+                                            <Clock className="w-5 h-5 md:w-4 md:h-4 text-white flex-shrink-0" />
+                                            <span>08:30 - 12:30</span>
+                                        </li>
+                                        <li className="flex items-center gap-2 ml-7 md:ml-6">
+                                            <span>14:00 - 19:00</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Location */}
-                        <div>
-                            <h4 className="text-lg font-bold mb-6">{tf('location')}</h4>
-                            <div className="space-y-4">
-                                <div className="flex items-start gap-3 text-white/70">
-                                    <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
-                                    <span>
-                                        ບ້ານພະຂາວ, ເມືອງໄຊທານີ<br />
-                                        ນະຄອນຫຼວງວຽງຈັນ<br />
-                                        Vientiane, Laos
-                                    </span>
-                                </div>
-                                <div className="w-full h-32 rounded-xl overflow-hidden relative">
-                                    <Image
-                                        src="/dental-treatment.jpg"
-                                        alt="Laone Dental Clinic location in Vientiane, Laos"
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                        className="object-cover opacity-70"
-                                        loading="lazy"
-                                    />
+                        <div className="flex justify-center lg:justify-end">
+                            <div className="lg:max-w-xs">
+                                <h4 className="text-2xl font-bold mb-6 flex items-center justify-center lg:justify-end gap-2">
+                                    {tf('location')}
+                                    <MapPin className="w-7 h-7 text-white flex-shrink-0" />
+                                </h4>
+                                <div className="space-y-4">
+                                    <div className="text-white/70 text-center lg:text-right text-lg">
+                                        <span>
+                                            ບ້ານພະຂາວ, ເມືອງໄຊທານີ<br />
+                                            ນະຄອນຫຼວງວຽງຈັນ<br />
+                                            Vientiane, Laos
+                                        </span>
+                                    </div>
+                                    <div className="w-full h-32 rounded-xl overflow-hidden relative">
+                                        <Image
+                                            src="/clinic-location-map.png"
+                                            alt="Laone Dental Clinic location map in Vientiane, Laos"
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                            className="object-cover"
+                                            loading="lazy"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
